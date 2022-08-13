@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { Button, Card } from 'react-bootstrap'
 
 import { ArrowRightIcon, ArrowLeftIcon } from './Icons'
+import Link from 'next/link'
 
 const ProductCarousel = ({ collection }) => {
 
@@ -58,21 +59,23 @@ const ProductCarousel = ({ collection }) => {
                                 <div className={styles.card_div} key={currentProductIndex}>
                                     {current_product ?
                                         <>
-                                            <Card className={styles.element_card}>
+                                            <Link href={`products/${current_product.id}`}>
+                                                <Card className={styles.element_card}>
 
-                                                <div className={styles.card_img_div}>
-                                                    <img src={current_product.secondary_image.image}
-                                                        height={"318px"} width={"258px"}
-                                                        className={styles.s_card_img} />
-                                                </div>
+                                                    <div className={styles.card_img_div}>
+                                                        <img src={current_product.secondary_image.image}
+                                                            height={"318px"} width={"258px"}
+                                                            className={styles.s_card_img} />
+                                                    </div>
 
-                                                <div className={styles.card_img_div}>
-                                                    <img src={current_product.primary_image.image}
-                                                        height={"318px"} width={"258px"}
-                                                        className={styles.card_img} />
-                                                </div>
+                                                    <div className={styles.card_img_div}>
+                                                        <img src={current_product.primary_image.image}
+                                                            height={"318px"} width={"258px"}
+                                                            className={styles.card_img} />
+                                                    </div>
 
-                                            </Card>
+                                                </Card>
+                                            </Link>
                                             <p className={styles.card_info}>{current_product.name}</p>
                                         </>
                                         : <div></div>}

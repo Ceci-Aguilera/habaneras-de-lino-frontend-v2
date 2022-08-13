@@ -1,0 +1,204 @@
+.product_detail_div,
+.product_detail_row{
+    width: 100% !important;
+}
+
+.product_detail_wrapper_div{
+    width: 80%;
+    max-width: 1500px !important;
+    margin-top: 50px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.primary_image_col{
+    display: flex !important;
+    flex-direction: row !important;
+    column-gap: 20px;
+}
+
+.small_images_div,
+.small_image_card_div,
+.small_image_card,
+.small_image{
+    text-align: center !important;
+}
+
+.small_image_card,
+.small_image{
+    width: 100% !important;
+    max-width: 100px;
+}
+
+.small_image_card{
+    margin-bottom: 10px;
+    border-radius: 0 !important;
+}
+
+.primary_image_card_div{
+    width: 100%;
+}
+
+.primary_image_card{
+    border-radius: 0 !important;
+}
+
+.primary_image_card,
+.primary_image{
+    width: 100% !important;
+    max-width: 600px !important;
+}
+
+.product_info_form_div{
+    width: 80% !important;
+    max-width: 450px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.product_title_div{
+    margin-top: 50px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: start !important;
+}
+
+.product_title{
+    text-align: start !important;
+    font-weight: 400 !important;
+}
+
+.product_info_divider{
+    width: 100%;
+    height: 0.3px !important;
+    background-color: rgba(0,0,0,0.4);
+    margin-top: 20px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 20px;
+    text-align: center !important;
+}
+
+.product_colors_title{
+    text-align: start !important;
+}
+
+.available_colors_row{
+    height: max-content !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+.available_color_col{
+    width: 15% !important;
+    margin-bottom: 20px;
+}
+
+.available_color_select_div{
+    width: 30px !important;
+    height: 30px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    border: 2px solid black;
+    border-radius: 50px;
+    position: relative !important;
+}
+
+.available_color_div{
+    width: 30px !important;
+    height: 30px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    border: 1px solid #999999 !important;
+    border-radius: 50px;
+    position: relative !important;
+}
+
+.available_color_div:before {
+    content:     "";
+    display:     block;
+    padding-top: 100%; /* initial ratio of 1:1*/
+}
+
+.product_size_title,
+.product_sleeve_title{
+    text-align: start !important;
+}
+
+.product_size_col,
+.product_sleeve_col{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.product_size_div,
+.product_sleeve_div{
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+}
+
+.product_quantity_div{
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: start !important;
+}
+
+.product_sleeve_div{
+    margin-top: 30px !important;
+}
+
+.product_size_button,
+.product_sleeve_button{
+    width: 100% !important;
+    border-radius: 0 !important;
+}
+
+.product_size_select_button,
+.product_sleeve_select_button{
+    width: 100% !important;
+    border-radius: 0 !important;
+    border: 1px solid black;
+}
+
+.product_quantity_form{
+    width: 100% !important;
+    max-width: 150px !important;
+    border-radius: 0 !important;
+}
+
+.add_button_div{
+    width: 100% !important;
+    margin-top: 50px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+}
+
+.add_button{
+    width: 100% !important;
+    height: 50px !important;
+    border: 1px solid black !important;
+    background-color: rgba(14, 27, 67, 0.823);
+    border-radius: 0 !important;
+    font-weight: bold;
+}
+
+.add_button:hover,
+.add_button:active,
+.add_button:after,
+.add_button:focus{
+    width: 100% !important;
+    height: 50px !important;
+    border: 1px solid black !important;
+    border-radius: 0 !important;
+    font-weight: bold;
+}
