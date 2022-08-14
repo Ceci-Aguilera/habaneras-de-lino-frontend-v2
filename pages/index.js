@@ -3,33 +3,34 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import * as collectionF from '../logic/fetchCollections'
 
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import ProductCarousel from '../components/ProductCarousel';
-import {Button} from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
 import * as commonConstants from '../logic/common-constants'
+import Link from 'next/link';
 
- const Index = () => {
+const Index = () => {
 
   const [collections, setCollections] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function awaitCollections(){
+    async function awaitCollections() {
       await collectionF.fetchCollectionsByNameYear(setCollections, commonConstants.principalCollections);
     }
     return () => {
       awaitCollections()
     }
-  }, [] )
+  }, [])
 
   useEffect(() => {
-    if(collections.length > 0){
+    if (collections.length > 0) {
       setLoading(false)
     }
   }, [collections])
 
-  return(loading)?<div></div>:(
+  return (loading) ? <div></div> : (
     <div className={styles.container}>
 
       <Head>
@@ -41,21 +42,23 @@ import * as commonConstants from '../logic/common-constants'
       <main className={styles.main}>
         <div className={styles.collections_div}>
 
-        {collections.map((collection, collectionIndex) => {
-          return(
-            <div key={collectionIndex}>
-            {(collection.products.length) > 2?
-            <div className={styles.collection_div}>
-              <ProductCarousel collection={collection} />
-              <div className={styles.collection_button_div}>
-                <Button variant='light' className={styles.collection_button}>
-                  See More
-                </Button>
+          {collections.map((collection, collectionIndex) => {
+            return (
+              <div key={collectionIndex}>
+                {(collection.products.length) > 2 ?
+                  <div className={styles.collection_div}>
+                    <ProductCarousel collection={collection} />
+                    <div className={styles.collection_button_div}>
+                      <Link href={`/collections/${collection.id}`}>
+                        <Button variant='light' className={styles.collection_button}>
+                          MORE
+                        </Button>
+                      </Link>
+                    </div>
+                  </div> : <div></div>}
               </div>
-            </div>:<div></div>}
-          </div>
-          )
-        })}
+            )
+          })}
         </div>
       </main>
 

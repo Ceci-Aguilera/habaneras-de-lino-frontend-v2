@@ -8,6 +8,8 @@ import { Button, Card } from 'react-bootstrap'
 import { ArrowRightIcon, ArrowLeftIcon } from './Icons'
 import Link from 'next/link'
 
+import * as commonConstants from '../logic/common-constants'
+
 const ProductCarousel = ({ collection }) => {
 
     const [products, setProducts] = useState([])
@@ -76,7 +78,7 @@ const ProductCarousel = ({ collection }) => {
 
                                                 </Card>
                                             </Link>
-                                            <p className={styles.card_info}>{current_product.name}</p>
+                                            <p className={styles.card_info}>{commonConstants.TruncateLongString(current_product.name)}</p>
                                         </>
                                         : <div></div>}
                                 </div>

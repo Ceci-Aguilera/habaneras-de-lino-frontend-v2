@@ -24,3 +24,12 @@ export const productSleeves = {
 }
 
 export const quantityArray = Array.from({length: 100}, (_, i) => i + 1)
+
+export const TruncateLongString = (long_string) => {
+    if(long_string.length <= 20){
+        return long_string;
+    }
+    return long_string.substring(0, 17) + "..."
+}
+
+export const PAGINATION_SIZE = 12;
