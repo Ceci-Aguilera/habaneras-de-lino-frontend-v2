@@ -24,6 +24,15 @@
     text-align: center !important;
 }
 
+.small_image_button{
+    width: 100% !important;
+    max-width: 150px;
+    background-color: transparent !important;
+    border: 0px !important;
+    margin-bottom: 10px;
+    padding: 0px !important;
+}
+
 .small_image_card,
 .small_image{
     width: 100% !important;
@@ -31,7 +40,6 @@
 }
 
 .small_image_card{
-    margin-bottom: 10px;
     border-radius: 0 !important;
 }
 

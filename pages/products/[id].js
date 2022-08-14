@@ -10,6 +10,7 @@ const ProductDetail = ({ id }) => {
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [product_variation, setProductVariation] = useState(commonConstants.defaultProduct)
+    const [current_image, setCurrentImage] = useState(null)
 
     useEffect(() => {
         async function awaitProduct() {
@@ -40,6 +41,12 @@ const ProductDetail = ({ id }) => {
         }
     }, [product])
 
+    useEffect(() => {
+        if (product !== null && product !== undefined) {
+            setCurrentImage(product.primary_image)
+        }
+    }, [product])
+
     const onColorClick = (e, new_color) => {
         e.preventDefault();
         setProductVariation(prevState => ({ ...prevState, color: new_color }));
@@ -57,6 +64,11 @@ const ProductDetail = ({ id }) => {
 
     const onQuantityClick = (new_quantity) => {
         setProductVariation(prevState => ({ ...prevState, quantity: new_quantity }));
+    }
+
+    const onSmallImageClick = (e, new_image) => {
+        e.preventDefault();
+        setCurrentImage(new_image)
     }
 
     // TODO: Move this to the redox
@@ -80,13 +92,29 @@ const ProductDetail = ({ id }) => {
 
                             <Col xs={12} sm={12} md={12} lg={6} className={styles.primary_image_col}>
                                 <div className={styles.small_images_div}>
+
                                     <div className={styles.small_image_card_div}>
-                                        <Card className={styles.small_image_card}>
-                                            <img
-                                                src={product.secondary_image.image}
-                                                alt='Product'
-                                                className={styles.small_image} />
-                                        </Card>
+
+                                        <Button onClick={(e) => onSmallImageClick(e, product.primary_image)} className={styles.small_image_button}>
+                                            <Card className={styles.small_image_card}>
+                                                <img
+                                                    src={product.primary_image.image}
+                                                    alt='Product'
+                                                    className={styles.small_image} />
+                                            </Card>
+                                        </Button>
+                                    </div>
+
+                                    <div className={styles.small_image_card_div}>
+
+                                        <Button onClick={(e) => onSmallImageClick(e, product.secondary_image)} className={styles.small_image_button}>
+                                            <Card className={styles.small_image_card}>
+                                                <img
+                                                    src={product.secondary_image.image}
+                                                    alt='Product'
+                                                    className={styles.small_image} />
+                                            </Card>
+                                        </Button>
                                     </div>
 
                                     {product.extra_images ?
@@ -95,9 +123,11 @@ const ProductDetail = ({ id }) => {
                                                 return (
 
                                                     <div className={styles.small_image_card_div} key={small_img_index}>
-                                                        <Card className={styles.small_image_card}>
-                                                            <img src={small_img.image} alt='Product' />
-                                                        </Card>
+                                                        <Button onClick={(e) => onSmallImageClick(e, small_img)} className={styles.small_image_button}>
+                                                            <Card className={styles.small_image_card}>
+                                                                <img src={small_img.image} alt='Product' />
+                                                            </Card>
+                                                        </Button>
                                                     </div>
                                                 );
                                             })}
@@ -107,7 +137,7 @@ const ProductDetail = ({ id }) => {
                                 <div className={styles.primary_image_card_div}>
                                     <Card className={styles.primary_image_card}>
                                         <img
-                                            src={product.primary_image.image}
+                                            src={current_image.image}
                                             alt='Product'
                                             className={styles.primary_image} />
                                     </Card>
