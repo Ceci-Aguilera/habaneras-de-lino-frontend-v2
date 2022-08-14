@@ -59,6 +59,11 @@ const ProductDetail = ({ id }) => {
         setProductVariation(prevState => ({ ...prevState, quantity: new_quantity }));
     }
 
+    // TODO: Move this to the redox
+    const onAddProductCart = (e) => {
+        e.preventDefault();
+    }
+
 
     return (loading) ? <div></div> : (
         <>
@@ -228,7 +233,7 @@ const ProductDetail = ({ id }) => {
                                     </div>
 
                                     <div className={styles.add_button_div}>
-                                        <Button variant='outline-light' className={styles.add_button}>
+                                        <Button variant='outline-light' className={styles.add_button} onClick={(e) => onAddProductCart(e)}>
                                             ADD TO BAG
                                         </Button>
                                     </div>
