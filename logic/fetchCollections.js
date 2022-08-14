@@ -13,3 +13,8 @@ export async function fetchCollectionsByNameYear(setCollections, body){
     const endpoint = `store/clothing-collections/filter/names/`
     await fetchSetterPOST(endpoint, body, setCollections);
 }
+
+export async function fetchCollection(setCollection, collection_id){
+    const endpoint = `store/clothing-collections/${collection_id}/`
+    await fetchSetter(endpoint, setCollection)
+}

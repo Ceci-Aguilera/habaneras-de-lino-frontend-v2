@@ -1,0 +1,114 @@
+.collection_div{
+    width: 100% !important;
+    max-width: 1000px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+}
+
+.title_div{
+    margin-top: 50px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 50px !important;
+    text-align: center !important;
+}
+
+.grid_row{
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+}
+
+.grid_col{
+    width: 30% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border: 0px !important;
+    text-align: center !important;
+}
+
+.prod_card_div{
+    width: 250px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 100px !important;
+    text-align: center !important;
+}
+
+.prod_card{
+    width: 100% !important;
+    height: 345px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border: 0px !important;
+    text-align: center !important;
+}
+
+.prod_card_img{
+    width: 248px !important;
+    height: 300px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border: 1px solid #44444444;
+    border-radius: 0px !important;
+    text-align: center !important;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.s_card_img{
+    width: 245px !important;
+    height: 298px !important;
+    margin-top: 1px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 0px !important;
+    text-align: center !important;
+}
+
+.card_img_div{
+    width: 248px !important;
+    height: 345px !important;
+    border: 0px !important;
+}
+
+.prod_card:hover{
+    cursor: pointer !important;
+}
+
+.prod_card:hover .prod_card_img{
+    display: none !important;
+}
+
+.prod_card_footer{
+    width: 100% !important;
+    height: 45px !important;
+    background-color: transparent !important;
+    border: 0px;
+}
+
+.prod_card_footer_div{
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+}
+
+.prod_card_footer_name{
+    text-align: start !important;
+}
+
+.arrow_wrapper_div{
+    width: 200px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    column-gap: 20px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+}
