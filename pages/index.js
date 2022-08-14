@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import * as collectionF from '../logic/fetchCollections'
+import * as categoryF from '../logic/fetchCategories'
 
 import React, { useEffect, useState } from "react";
 import ProductCarousel from '../components/ProductCarousel';
@@ -13,14 +14,19 @@ import Link from 'next/link';
 const Index = () => {
 
   const [collections, setCollections] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function awaitCollections() {
       await collectionF.fetchCollectionsByNameYear(setCollections, commonConstants.principalCollections);
     }
+    async function awaitCategories() {
+      await categoryF.fetchCategories(setCategories);
+    }
     return () => {
       awaitCollections()
+      awaitCategories()
     }
   }, [])
 
@@ -28,7 +34,7 @@ const Index = () => {
     if (collections.length > 0) {
       setLoading(false)
     }
-  }, [collections])
+  }, [collections, categories])
 
   return (loading) ? <div></div> : (
     <div className={styles.container}>
@@ -51,6 +57,27 @@ const Index = () => {
                     <div className={styles.collection_button_div}>
                       <Link href={`/collections/${collection.id}`}>
                         <Button variant='light' className={styles.collection_button}>
+                          MORE
+                        </Button>
+                      </Link>
+                    </div>
+                  </div> : <div></div>}
+              </div>
+            )
+          })}
+        </div>
+
+        <div className={styles.categories_div}>
+
+          {categories.map((category, category_idx) => {
+            return (
+              <div key={category_idx}>
+                {(category.products.length) > 2 ?
+                  <div className={styles.category_div}>
+                    <ProductCarousel collection={category} />
+                    <div className={styles.category_button_div}>
+                      <Link href={`/categories/${category.id}`}>
+                        <Button variant='light' className={styles.category_button}>
                           MORE
                         </Button>
                       </Link>

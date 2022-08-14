@@ -1,24 +1,32 @@
-.collections_div{
+.collections_div,
+.categories_div{
     width: 100%;
     margin-top: 50px;
     text-align: center;
 }
 
-.collection_div{
+.categories_div{
+    margin-top: 100px !important;
+}
+
+.collection_div,
+.category_div{
     width: 100%;
     margin-top: 10px;
     margin-bottom: 65px;
     text-align: center;
 }
 
-.collection_button_div{
+.collection_button_div,
+.category_button_div{
     margin-top: 30px;
     margin-left: auto !important;
     margin-right: auto !important;
     text-align: center !important;
 }
 
-.collection_button{
+.collection_button,
+.category_button{
     width: 100%;
     max-width: 150px;
     border: 1px solid black !important;
@@ -28,7 +36,11 @@
 .collection_button:hover,
 .collection_button:active,
 .collection_button:after,
-.collection_button:focus{
+.collection_button:focus,
+.category_button:hover,
+.category_button:active,
+.category_button:after,
+.category_button:focus{
     background-color: aliceblue;
     border: 1px solid black !important;
     border-radius: 0 !important;
