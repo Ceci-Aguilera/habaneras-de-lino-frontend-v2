@@ -1,61 +1,44 @@
 import { useEffect, useState } from "react";
 import styles from "../../styles/ProductDetail.module.css";
 import { Row, Col, Card, Button, Form } from 'react-bootstrap'
-import * as ProductF from "../../logic/fetchProducts"
+import * as ProductVarF from "../../logic/fetchProductVariation"
 import Head from 'next/head'
 import * as commonConstants from '../../logic/common-constants'
 
 import { useCart } from "../../context/CartContext";
 
-const ProductDetail = ({ id }) => {
+const ProductVariationDetail = ({ id }) => {
 
-    const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [product_variation, setProductVariation] = useState(commonConstants.defaultProduct)
     const [current_image, setCurrentImage] = useState(null)
 
-    const {cart, addProduct} = useCart()
-
-    // console.log('Cart ',cart)
+    const {cart, updateProduct} = useCart()
 
     useEffect(() => {
-        async function awaitProduct() {
-            await ProductF.fetchProduct(setProduct, id);
+        async function awaitProductVariation() {
+            await ProductVarF.fetchProductVariation(setProductVariation, id);
         }
         return () => {
-            awaitProduct()
+            awaitProductVariation()
         }
     }, [id])
 
     useEffect(() => {
-        if (product !== null && product !== undefined) {
+        if (product_variation.product !== null && product_variation.product !== undefined) {
             setLoading(false)
         }
-    }, [product, id])
+    }, [product_variation, id])
 
     useEffect(() => {
-        if (product !== null && product !== undefined) {
-
-            const new_product = {
-                product: product.id,
-                color: product.available_colors[0],
-                size: 'S',
-                sleeve: commonConstants.productFields[product.tag].includes('sleeve') ? commonConstants.productSleeves[product.tag][0] : null,
-                quantity: 1
-            }
-            setProductVariation(new_product)
+        if (product_variation.product !== null && product_variation.product !== undefined) {
+            setCurrentImage(product_variation.product.primary_image)
         }
-    }, [product])
-
-    useEffect(() => {
-        if (product !== null && product !== undefined) {
-            setCurrentImage(product.primary_image)
-        }
-    }, [product])
+    }, [product_variation])
 
     const onColorClick = (e, new_color) => {
         e.preventDefault();
-        setProductVariation(prevState => ({ ...prevState, color: new_color }));
+        setProductVariation(prevState => ({ ...prevState, principal_color: new_color }));
     }
 
     const onSizeClick = (e, new_size) => {
@@ -79,9 +62,8 @@ const ProductDetail = ({ id }) => {
 
     const onAddProductCart = async (e) => {
         e.preventDefault();
-        await addProduct(product_variation)
+        await updateProduct(product_variation)
     }
-
 
     return (loading) ? <div></div> : (
         <>
@@ -101,10 +83,10 @@ const ProductDetail = ({ id }) => {
 
                                     <div className={styles.small_image_card_div}>
 
-                                        <Button onClick={(e) => onSmallImageClick(e, product.primary_image)} className={styles.small_image_button}>
+                                        <Button onClick={(e) => onSmallImageClick(e, product_variation.product.primary_image)} className={styles.small_image_button}>
                                             <Card className={styles.small_image_card}>
                                                 <img
-                                                    src={product.primary_image.image}
+                                                    src={product_variation.product.primary_image.image}
                                                     alt='Product'
                                                     className={styles.small_image} />
                                             </Card>
@@ -113,19 +95,19 @@ const ProductDetail = ({ id }) => {
 
                                     <div className={styles.small_image_card_div}>
 
-                                        <Button onClick={(e) => onSmallImageClick(e, product.secondary_image)} className={styles.small_image_button}>
+                                        <Button onClick={(e) => onSmallImageClick(e, product_variation.product.secondary_image)} className={styles.small_image_button}>
                                             <Card className={styles.small_image_card}>
                                                 <img
-                                                    src={product.secondary_image.image}
+                                                    src={product_variation.product.secondary_image.image}
                                                     alt='Product'
                                                     className={styles.small_image} />
                                             </Card>
                                         </Button>
                                     </div>
 
-                                    {product.extra_images ?
+                                    {product_variation.product.extra_images ?
                                         <>
-                                            {product.extra_images.map((small_img, small_img_index) => {
+                                            {product_variation.product.extra_images.map((small_img, small_img_index) => {
                                                 return (
 
                                                     <div className={styles.small_image_card_div} key={small_img_index}>
@@ -154,7 +136,7 @@ const ProductDetail = ({ id }) => {
                                 <div className={styles.product_info_form_div}>
                                     <div className={styles.product_title_div}>
                                         <h4 className={styles.product_title}>
-                                            {product.name}
+                                            {product_variation.product.name}
                                         </h4>
                                     </div>
 
@@ -166,11 +148,11 @@ const ProductDetail = ({ id }) => {
                                         </h6>
 
                                         <div className={styles.available_colors_row}>
-                                            {product.available_colors.map((available_color, available_color_idx) => {
+                                            {product_variation.product.available_colors.map((available_color, available_color_idx) => {
                                                 return (
                                                     <div className={styles.available_color_col} key={available_color_idx}>
                                                         <Button variant='outline-light' onClick={(e) => onColorClick(e, available_color)}>
-                                                            {product_variation.color == available_color ?
+                                                            {product_variation.principal_color.id == available_color.id ?
                                                                 <div className={styles.available_color_select_div} style={{ "backgroundColor": available_color.code }}></div>
                                                                 : <div className={styles.available_color_div} style={{ "backgroundColor": available_color.code }}></div>
                                                             }
@@ -189,7 +171,7 @@ const ProductDetail = ({ id }) => {
                                         </h6>
 
                                         <Row className={styles.product_size_row}>
-                                            {commonConstants.productSizes[product.tag].map((prod_size, prod_size_idx) => {
+                                            {commonConstants.productSizes[product_variation.product.tag].map((prod_size, prod_size_idx) => {
                                                 return (
                                                     <Col xs={3} sm={3} md={3} lg={3} className={styles.product_size_col} key={prod_size_idx}>
                                                         <div className={styles.product_size_div}>
@@ -213,7 +195,7 @@ const ProductDetail = ({ id }) => {
                                         </Row>
                                     </div>
 
-                                    {commonConstants.productFields[product.tag].includes('sleeve') ?
+                                    {commonConstants.productFields[product_variation.product.tag].includes('sleeve') ?
 
                                         <div className={styles.product_sleeve_div}>
                                             <h6 className={styles.product_sleeve_title}>
@@ -221,7 +203,7 @@ const ProductDetail = ({ id }) => {
                                             </h6>
 
                                             <Row className={styles.product_sleeve_row}>
-                                                {commonConstants.productSleeves[product.tag].map((prod_sleeve, prod_sleeve_idx) => {
+                                                {commonConstants.productSleeves[product_variation.product.tag].map((prod_sleeve, prod_sleeve_idx) => {
                                                     return (
                                                         <Col xs={4} sm={4} md={4} lg={4} className={styles.product_sleeve_col} key={prod_sleeve_idx}>
                                                             <div className={styles.product_sleeve_element_div}>
@@ -255,6 +237,7 @@ const ProductDetail = ({ id }) => {
 
                                         <div className={styles.product_quantity_form_div}>
                                             <Form.Select size='md' className={styles.product_quantity_form}
+                                                defaultValue={product_variation.quantity}
                                                 onChange={(e) => onQuantityClick(e.target.value)}>
                                                 {commonConstants.quantityArray.map((qty_value, qty_idx) => {
                                                     return (
@@ -285,10 +268,10 @@ const ProductDetail = ({ id }) => {
 
 }
 
-ProductDetail.getInitialProps = async ({ query }) => {
+ProductVariationDetail.getInitialProps = async ({ query }) => {
     const { id } = query;
 
     return { id };
 };
 
-export default ProductDetail;
+export default ProductVariationDetail;

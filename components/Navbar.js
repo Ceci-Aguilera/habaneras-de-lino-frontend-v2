@@ -2,6 +2,8 @@ import styles from "../styles/Navbar.module.css"
 
 import { Navbar, Container, Nav } from "react-bootstrap"
 
+import { ShoppingBag } from "./Icons"
+
 export default function NextNavbar() {
     return (
         <Navbar className={styles.navbar} collapseOnSelect expand="lg" bg="light" variant="light">
@@ -14,7 +16,7 @@ export default function NextNavbar() {
                         <Nav.Link href="#pricing">Pricing</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">More deets</Nav.Link>
+                        <Nav.Link href="/cart"><ShoppingBag height="30" width="30" fill="black" /> Cart</Nav.Link>
                         <Nav.Link eventKey={2} href="#memes">
                             Dank memes
                         </Nav.Link>
