@@ -19,7 +19,7 @@ const Cart = () => {
         }
     }, [cart])
 
-    const onDeleteProduct = async(e, product_id) => {
+    const onDeleteProduct = async (e, product_id) => {
         e.preventDefault();
         await deleteProduct(product_id, true)
     }
@@ -36,7 +36,21 @@ const Cart = () => {
                 <div className={styles.cart_div}>
 
                     <div className={styles.cart_title_div}>
-                        <h1 className={styles.cart_title}>Cart</h1>
+                        <Row className={styles.cart_title_row}>
+                            <Col xs={3} sm={3} md={3} lg={3} className={styles.cart_title_col}></Col>
+                            <Col xs={6} sm={6} md={6} lg={6} className={styles.cart_title_col}>
+                                <div className={styles.cart_title_col_div}>
+                                    <h1 className={styles.cart_title}>Cart</h1>
+                                </div>
+                            </Col>
+                            <Col xs={3} sm={3} md={3} lg={3} className={styles.cart_title_col}>
+                                <div className={styles.cart_checkout_col_div}>
+                                    <Button variant="dark" size='lg' className={styles.checkout_button}>
+                                        Checkout
+                                    </Button>
+                                </div>
+                            </Col>
+                        </Row>
                     </div>
 
                     <div className={styles.cart_prods_div}>
@@ -94,13 +108,13 @@ const Cart = () => {
                                                 </div>
                                                 <Row className={styles.cart_buttons_row}>
                                                     <Col xs={12} sm={12} md={6} lg={6} className={styles.cart_button_col}>
-                                                        <Button variant='dark' className={styles.cart_delete_button} onClick={(e) => onDeleteProduct(e, product.id)}>
+                                                        <Button variant='outline-dark' className={styles.cart_delete_button} onClick={(e) => onDeleteProduct(e, product.id)}>
                                                             Delete
                                                         </Button>
                                                     </Col>
                                                     <Col xs={12} sm={12} md={6} lg={6} className={styles.cart_button_col}>
                                                         <Link href={`/product-variation/${product.id}`}>
-                                                            <Button variant='outline-dark' className={styles.cart_edit_button}>
+                                                            <Button variant='dark' className={styles.cart_edit_button}>
                                                                 Edit
                                                             </Button>
                                                         </Link>
@@ -110,9 +124,12 @@ const Cart = () => {
                                         </Col>
                                     </Row>
                                 </div>
-
                             );
                         })}
+
+                        <div className={styles.total_pricing_div}>
+                            Pre Total: ${parseFloat(cart.total_amount).toFixed(2)}
+                        </div>
 
                     </div>
 
