@@ -14,7 +14,7 @@ const ProductDetail = ({ id }) => {
     const [product_variation, setProductVariation] = useState(commonConstants.defaultProduct)
     const [current_image, setCurrentImage] = useState(null)
 
-    const {cart, addProduct} = useCart()
+    const { cart, addProduct } = useCart()
 
     // console.log('Cart ',cart)
 
@@ -248,25 +248,41 @@ const ProductDetail = ({ id }) => {
 
                                     <div className={styles.product_info_divider} />
 
-                                    <div className={styles.product_quantity_div}>
-                                        <h6 className={styles.product_quantity_title}>
-                                            QTY
-                                        </h6>
+                                    <Row className={styles.product_quantity_pricing_div}>
 
-                                        <div className={styles.product_quantity_form_div}>
-                                            <Form.Select size='md' className={styles.product_quantity_form}
-                                                onChange={(e) => onQuantityClick(e.target.value)}>
-                                                {commonConstants.quantityArray.map((qty_value, qty_idx) => {
-                                                    return (
-                                                        <option key={qty_idx} value={qty_value}>
-                                                            {qty_value}
-                                                        </option>
-                                                    );
-                                                })}
-                                            </Form.Select>
-                                        </div>
+                                        <Col xs={6} sm={6} md={6} lg={6}>
+                                            <div className={styles.product_quantity_div}>
+                                                <h6 className={styles.product_quantity_title}>
+                                                    QTY
+                                                </h6>
 
-                                    </div>
+                                                <div className={styles.product_quantity_form_div}>
+                                                    <Form.Select size='md' className={styles.product_quantity_form}
+                                                        onChange={(e) => onQuantityClick(e.target.value)}>
+                                                        {commonConstants.quantityArray.map((qty_value, qty_idx) => {
+                                                            return (
+                                                                <option key={qty_idx} value={qty_value}>
+                                                                    {qty_value}
+                                                                </option>
+                                                            );
+                                                        })}
+                                                    </Form.Select>
+                                                </div>
+
+                                            </div>
+                                        </Col>
+
+                                        <Col xs={6} sm={6} md={6} lg={6}>
+                                            <div className={styles.product_pricing_div}>
+                                                <h6 className={styles.product_pricing_title}>
+                                                    Pricing
+                                                </h6>
+
+                                                <h6>${parseFloat(parseFloat(product.base_pricing) * parseFloat(product_variation.quantity)).toFixed(2)}</h6>
+                                            </div>
+                                        </Col>
+
+                                    </Row>
 
                                     <div className={styles.add_button_div}>
                                         <Button variant='outline-light' className={styles.add_button} onClick={(e) => onAddProductCart(e)}>

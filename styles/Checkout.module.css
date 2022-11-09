@@ -1,0 +1,70 @@
+.checkout_wrapper{
+    width: 100% !important;
+    max-width: 800px !important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+}
+
+.checkout_title_div{
+    width: 100% !important;
+    margin-top: 50px !important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+}
+
+.checkout_title{
+    font-weight: 400 !important;
+    text-align: center !important;
+}
+
+.shipping_info_div{
+    margin-top: 15px;
+}
+
+.divider{
+    height: 2px;
+    width: 90%;
+    background-color: #444444aa;
+    margin-top: 20px;
+    margin-left: auto !important;
+    margin-right: auto!important;
+}
+
+.checkout_info_div{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+}
+
+.checkout_info_card{
+    width: 100%;
+    margin-top: 15px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: start !important;
+}
+
+.section_title{
+    text-align: center !important;
+}
+
+.checkout_info_p{
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.purchase_div{
+    width: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+}
+
+.purchase_button{
+    width: 200px;
+    margin-top: 50px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 0px !important;
+    text-align: center !important;
+}
