@@ -18,7 +18,7 @@ function get_const_config() {
 const check_valid = (x) => (x !== null && x !== undefined);
 
 const is_product_in_cart = (cart, product_id, color, size, sleeve, product_variation_id = null) => {
-    if (!cart) return 0;
+    if (!cart || !cart.product_variations || cart.product_variations.length == 0) return null;
 
     const cart_products = cart.product_variations;
 
@@ -90,10 +90,10 @@ export const CartProvider = ({ children }) => {
         if (check_valid(cart)) token = cart.token;
 
         const body = JSON.stringify({
-            product: product_variation.product.id,
+            product: product_variation.product,
             size: product_variation.size,
             sleeve: product_variation.sleeve,
-            principal_color: product_variation.principal_color.id,
+            principal_color: product_variation.color.id,
             quantity: product_variation.quantity,
             cart_token: token,
         })
@@ -207,8 +207,23 @@ export const CartProvider = ({ children }) => {
             });
     };
 
+    const makeOrder = async(body) => {
+        const config = get_const_config()
+        const order_url = domain + `/store/orders/`;
+            return await axios
+                .post(order_url, body, config)
+                .then(async (response) => {
+                    setCart(null);
+                    window.localStorage.removeItem("token")
+                    router.push('/');
+                })
+                .catch((error) => {
+                    console.log("Error while adding a new product to a cart ", error);
+                });
+    }
+
     return (
-        <CartContext.Provider value={{ cart, addProduct, updateProduct, deleteProduct }}>
+        <CartContext.Provider value={{ cart, addProduct, updateProduct, deleteProduct, makeOrder }}>
             {children}
         </CartContext.Provider>
     );

@@ -45,9 +45,11 @@ const Cart = () => {
                             </Col>
                             <Col xs={3} sm={3} md={3} lg={3} className={styles.cart_title_col}>
                                 <div className={styles.cart_checkout_col_div}>
-                                    <Button variant="dark" size='lg' className={styles.checkout_button}>
-                                        Checkout
-                                    </Button>
+                                    <Link href='/checkout'>
+                                        <Button variant="dark" size='lg' className={styles.checkout_button}>
+                                            Checkout
+                                        </Button>
+                                    </Link>
                                 </div>
                             </Col>
                         </Row>
@@ -55,7 +57,8 @@ const Cart = () => {
 
                     <div className={styles.cart_prods_div}>
 
-                        {cart.product_variations.map((product, prodIdx) => {
+                        {cart.product_variations?
+                            cart.product_variations.map((product, prodIdx) => {
                             return (
 
                                 <div key={prodIdx} className={styles.cart_item_div}>
@@ -125,10 +128,10 @@ const Cart = () => {
                                     </Row>
                                 </div>
                             );
-                        })}
+                        }):<div></div>}
 
                         <div className={styles.total_pricing_div}>
-                            Pre Total: ${parseFloat(cart.total_amount).toFixed(2)}
+                            Pre Total: ${cart.total_amount?parseFloat(cart.total_amount).toFixed(2):"0.00"}
                         </div>
 
                     </div>

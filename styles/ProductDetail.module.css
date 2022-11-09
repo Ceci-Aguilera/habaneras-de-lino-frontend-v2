@@ -183,6 +183,13 @@
     border-radius: 0 !important;
 }
 
+.product_pricing_div{
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: start !important;
+}
+
 .add_button_div{
     width: 100% !important;
     margin-top: 50px !important;

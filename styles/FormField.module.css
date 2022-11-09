@@ -1,0 +1,12 @@
+.label{
+    font-size: 0.8rem !important;
+}
+
+.formControl{
+    border-radius: 0px !important;
+}
+
+.formGroup{
+    padding: 0px !important;
+    margin: 0px !important;
+}
