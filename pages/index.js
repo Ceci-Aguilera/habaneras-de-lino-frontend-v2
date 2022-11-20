@@ -51,7 +51,7 @@ const Index = () => {
           {collections.map((collection, collectionIndex) => {
             return (
               <div key={collectionIndex}>
-                {(collection.products.length) > 2 ?
+                {(collection.products.length) > 0 ?
                   <div className={styles.collection_div}>
                     <ProductCarousel collection={collection} />
                     <div className={styles.collection_button_div}>

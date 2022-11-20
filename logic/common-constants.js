@@ -1,6 +1,5 @@
 export const principalCollections = [{
-    name: 'Cittadino', year: '2022',
-    name: 'Valladolid', year: '2022'
+    name: 'Luxury', year: '2022'
 }]
 
 export const defaultProduct = {
