@@ -10,12 +10,14 @@ import { Button } from 'react-bootstrap'
 
 import * as commonConstants from '../logic/common-constants'
 import Link from 'next/link';
+import { useLanguage } from '../context/LanguageContext'
 
 const Index = () => {
 
   const [collections, setCollections] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
+  const {translate} = useLanguage()
 
   useEffect(() => {
     async function awaitCollections() {
@@ -35,6 +37,7 @@ const Index = () => {
       setLoading(false)
     }
   }, [collections, categories])
+  
 
   return (loading) ? <div></div> : (
     <div className={styles.container}>
@@ -53,11 +56,11 @@ const Index = () => {
               <div key={collectionIndex}>
                 {(collection.products.length) > 0 ?
                   <div className={styles.collection_div}>
-                    <ProductCarousel collection={collection} />
+                    <ProductCarousel collection={collection} collectionTitle={true} />
                     <div className={styles.collection_button_div}>
                       <Link href={`/collections/${collection.id}`}>
                         <Button variant='light' className={styles.collection_button}>
-                          MORE
+                          {translate('word', 'more', 'full')}
                         </Button>
                       </Link>
                     </div>

@@ -14,6 +14,11 @@
     text-align: center !important;
 }
 
+.title_h1{
+    font-family: "Corinthia" !important;
+    font-size: 3.5rem !important;
+}
+
 .grid_row{
     width: 100% !important;
     display: flex !important;
@@ -32,7 +37,7 @@
 }
 
 .prod_card_div{
-    width: 250px !important;
+    width: 300px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     margin-bottom: 100px !important;
@@ -49,8 +54,8 @@
 }
 
 .prod_card_img{
-    width: 248px !important;
-    height: 300px !important;
+    width: 298px !important;
+    height: 350px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     border: 1px solid #44444444;
@@ -62,8 +67,8 @@
 }
 
 .s_card_img{
-    width: 245px !important;
-    height: 298px !important;
+    width: 298px !important;
+    height: 350px !important;
     margin-top: 1px !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -72,8 +77,8 @@
 }
 
 .card_img_div{
-    width: 248px !important;
-    height: 345px !important;
+    width: 298px !important;
+    height: 350px !important;
     border: 0px !important;
 }
 

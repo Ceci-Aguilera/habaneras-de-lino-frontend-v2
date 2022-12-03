@@ -6,6 +6,7 @@ import Head from 'next/head'
 import * as commonConstants from '../../logic/common-constants'
 
 import { useCart } from "../../context/CartContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 const ProductVariationDetail = ({ id }) => {
 
@@ -13,7 +14,8 @@ const ProductVariationDetail = ({ id }) => {
     const [product_variation, setProductVariation] = useState(commonConstants.defaultProduct)
     const [current_image, setCurrentImage] = useState(null)
 
-    const {cart, updateProduct} = useCart()
+    const { cart, updateProduct } = useCart()
+    const { translate } = useLanguage();
 
     useEffect(() => {
         async function awaitProductVariation() {
@@ -167,7 +169,7 @@ const ProductVariationDetail = ({ id }) => {
 
                                     <div className={styles.product_size_div}>
                                         <h6 className={styles.product_size_title}>
-                                            SIZE
+                                            {translate('word', 'size', 'full')}
                                         </h6>
 
                                         <Row className={styles.product_size_row}>
@@ -199,7 +201,7 @@ const ProductVariationDetail = ({ id }) => {
 
                                         <div className={styles.product_sleeve_div}>
                                             <h6 className={styles.product_sleeve_title}>
-                                                SLEEVE
+                                                {translate('word', 'sleeve', 'full')}
                                             </h6>
 
                                             <Row className={styles.product_sleeve_row}>
@@ -211,11 +213,11 @@ const ProductVariationDetail = ({ id }) => {
                                                                     <Button variant='light'
                                                                         className={styles.product_sleeve_select_button}
                                                                         onClick={(e) => onSizeClick(e, prod_sleeve)}>
-                                                                        {prod_sleeve}
+                                                                        {translate('word', prod_sleeve, 'full')}
                                                                     </Button>
                                                                     :
                                                                     <Button variant='light' className={styles.product_sleeve_button} onClick={(e) => onSleeveClick(e, prod_sleeve)}>
-                                                                        {prod_sleeve}
+                                                                        {translate('word', prod_sleeve, 'full')}
                                                                     </Button>
                                                                 }
                                                             </div>
@@ -230,30 +232,47 @@ const ProductVariationDetail = ({ id }) => {
 
                                     <div className={styles.product_info_divider} />
 
-                                    <div className={styles.product_quantity_div}>
-                                        <h6 className={styles.product_quantity_title}>
-                                            QTY
-                                        </h6>
+                                    <Row className={styles.product_quantity_pricing_div}>
 
-                                        <div className={styles.product_quantity_form_div}>
-                                            <Form.Select size='md' className={styles.product_quantity_form}
-                                                defaultValue={product_variation.quantity}
-                                                onChange={(e) => onQuantityClick(e.target.value)}>
-                                                {commonConstants.quantityArray.map((qty_value, qty_idx) => {
-                                                    return (
-                                                        <option key={qty_idx} value={qty_value}>
-                                                            {qty_value}
-                                                        </option>
-                                                    );
-                                                })}
-                                            </Form.Select>
-                                        </div>
+                                        <Col xs={6} sm={6} md={6} lg={6}>
 
-                                    </div>
+                                            <div className={styles.product_quantity_div}>
+                                                <h6 className={styles.product_quantity_title}>
+                                                    QTY
+                                                </h6>
+
+                                                <div className={styles.product_quantity_form_div}>
+                                                    <Form.Select size='md' className={styles.product_quantity_form}
+                                                        defaultValue={product_variation.quantity}
+                                                        onChange={(e) => onQuantityClick(e.target.value)}>
+                                                        {commonConstants.quantityArray.map((qty_value, qty_idx) => {
+                                                            return (
+                                                                <option key={qty_idx} value={qty_value}>
+                                                                    {qty_value}
+                                                                </option>
+                                                            );
+                                                        })}
+                                                    </Form.Select>
+                                                </div>
+
+                                            </div>
+                                        </Col>
+
+                                        <Col xs={6} sm={6} md={6} lg={6}>
+                                            <div className={styles.product_pricing_div}>
+                                                <h6 className={styles.product_pricing_title}>
+                                                    {translate('word', 'pricing', 'partial')}
+                                                </h6>
+
+                                                <h6>${parseFloat(parseFloat(product_variation.product.base_pricing) * parseFloat(product_variation.quantity)).toFixed(2)}</h6>
+                                            </div>
+                                        </Col>
+
+                                    </Row>
 
                                     <div className={styles.add_button_div}>
                                         <Button variant='outline-light' className={styles.add_button} onClick={(e) => onAddProductCart(e)}>
-                                            ADD TO BAG
+                                            {translate('short phrase', 'add_to_cart', 'full')}
                                         </Button>
                                     </div>
 

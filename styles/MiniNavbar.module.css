@@ -1,0 +1,13 @@
+.miniNavbar{
+    height: 30px !important;
+    background-color: rgb(66, 95, 122) !important;
+}
+
+.miniNavbarButtonDiv{
+    margin-left: 10px;
+}
+
+.miniNavbarButton{
+    background-color: transparent;
+    border-color: transparent;
+}
