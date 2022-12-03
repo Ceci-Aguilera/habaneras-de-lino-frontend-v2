@@ -1,0 +1,58 @@
+.footerDiv{
+    height: 350px;
+    width: 100%;
+    background-color: #e4dcdc;
+    margin-top: 150px;
+}
+
+.footerWrapperDiv{
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footerRow{
+    width: 100%;
+}
+
+.footerCol{
+    text-align: center;
+}
+
+.footerTitle{
+    margin-top: 30px;
+}
+
+.footerLinkDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+.footerLinkP{
+    color: #444444;
+    text-decoration: none;
+}
+
+.footerLinkP:hover{
+    text-decoration: underline;
+    color: rgb(107, 133, 156);
+}
+
+.footerSocialMediaDiv{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    justify-content: center;
+}
+
+.footerBrand{
+    color: rgb(107, 133, 156);
+    margin-top: 50px;
+    text-align: center;
+}
+
+.footerIconLink:hover{
+    fill:rgb(107, 133, 156);
+    cursor: pointer;
+}

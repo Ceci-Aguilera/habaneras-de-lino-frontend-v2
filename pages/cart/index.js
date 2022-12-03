@@ -7,10 +7,12 @@ import Link from "next/link";
 
 
 import { useCart } from "../../context/CartContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 const Cart = () => {
 
     const { cart, deleteProduct } = useCart()
+    const {translate } = useLanguage()
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -40,14 +42,14 @@ const Cart = () => {
                             <Col xs={3} sm={3} md={3} lg={3} className={styles.cart_title_col}></Col>
                             <Col xs={6} sm={6} md={6} lg={6} className={styles.cart_title_col}>
                                 <div className={styles.cart_title_col_div}>
-                                    <h1 className={styles.cart_title}>Cart</h1>
+                                    <h1 className={styles.cart_title}>{translate('word', 'cart', 'partial')}</h1>
                                 </div>
                             </Col>
                             <Col xs={3} sm={3} md={3} lg={3} className={styles.cart_title_col}>
                                 <div className={styles.cart_checkout_col_div}>
                                     <Link href='/checkout'>
                                         <Button variant="dark" size='lg' className={styles.checkout_button}>
-                                            Checkout
+                                            {translate('word', 'checkout', 'partial')}
                                         </Button>
                                     </Link>
                                 </div>
@@ -80,12 +82,12 @@ const Cart = () => {
 
                                                 <div className={styles.cart_item_info_div}>
                                                     <p className={styles.cart_item_info}>
-                                                        <span className={styles.cart_item_info_name}>Size:</span> {product.size}
+                                                        <span className={styles.cart_item_info_name}>{translate('word', 'size', 'partial')}:</span> {product.size}
                                                     </p>
 
                                                     {product.sleeve ?
                                                         <p className={styles.cart_item_info}>
-                                                            <span className={styles.cart_item_info_name}>Sleeve:</span> {product.sleeve}
+                                                            <span className={styles.cart_item_info_name}>{translate('word', 'sleeve', 'partial')}:</span> {product.sleeve}
                                                         </p>
 
                                                         : <div></div>
@@ -99,11 +101,11 @@ const Cart = () => {
                                                     </div>
 
                                                     <p className={styles.cart_item_info}>
-                                                        <span className={styles.cart_item_info_name}>Quantity:</span> {product.quantity}
+                                                        <span className={styles.cart_item_info_name}>{translate('word', 'quantity', 'partial')}:</span> {product.quantity}
                                                     </p>
 
                                                     <p className={styles.cart_item_info}>
-                                                        <span className={styles.cart_item_info_name}>Pricing:</span> {" "}
+                                                        <span className={styles.cart_item_info_name}>{translate('word', 'pricing', 'partial')}:</span> {" "}
                                                         ${parseFloat(product.product.base_pricing * product.quantity).toFixed(2)}
                                                     </p>
 
@@ -112,13 +114,13 @@ const Cart = () => {
                                                 <Row className={styles.cart_buttons_row}>
                                                     <Col xs={12} sm={12} md={6} lg={6} className={styles.cart_button_col}>
                                                         <Button variant='outline-dark' className={styles.cart_delete_button} onClick={(e) => onDeleteProduct(e, product.id)}>
-                                                            Delete
+                                                        {translate('word', 'delete', 'partial')}
                                                         </Button>
                                                     </Col>
                                                     <Col xs={12} sm={12} md={6} lg={6} className={styles.cart_button_col}>
                                                         <Link href={`/product-variation/${product.id}`}>
                                                             <Button variant='dark' className={styles.cart_edit_button}>
-                                                                Edit
+                                                            {translate('word', 'edit', 'partial')}
                                                             </Button>
                                                         </Link>
                                                     </Col>

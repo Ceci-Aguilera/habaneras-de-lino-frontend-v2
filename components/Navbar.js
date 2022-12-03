@@ -4,7 +4,12 @@ import { Navbar, Container, Nav } from "react-bootstrap"
 
 import { ShoppingBag } from "./Icons"
 
+import { useCart } from '../context/CartContext'
+
 export default function NextNavbar() {
+
+    const { cart } = useCart();
+
     return (
         <Navbar className={styles.navbar} collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
@@ -16,9 +21,9 @@ export default function NextNavbar() {
                         <Nav.Link href="#pricing">Pricing</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="/cart"><ShoppingBag height="30" width="30" fill="black" /> Cart</Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
-                            Dank memes
+                        <Nav.Link href="/cart"><ShoppingBag height="30" width="30" fill="black" /> <span className={styles.cart_count}>
+                            {(cart == null || cart.product_variations == null) ? "+" : cart.product_variations.length}
+                        </span>
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

@@ -6,6 +6,7 @@ import Head from 'next/head'
 import * as commonConstants from '../../logic/common-constants'
 
 import { useCart } from "../../context/CartContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 const ProductDetail = ({ id }) => {
 
@@ -15,6 +16,7 @@ const ProductDetail = ({ id }) => {
     const [current_image, setCurrentImage] = useState(null)
 
     const { cart, addProduct } = useCart()
+    const { translate } = useLanguage();
 
     // console.log('Cart ',cart)
 
@@ -185,7 +187,7 @@ const ProductDetail = ({ id }) => {
 
                                     <div className={styles.product_size_div}>
                                         <h6 className={styles.product_size_title}>
-                                            SIZE
+                                            {translate('word', 'size', 'full')}
                                         </h6>
 
                                         <Row className={styles.product_size_row}>
@@ -217,7 +219,7 @@ const ProductDetail = ({ id }) => {
 
                                         <div className={styles.product_sleeve_div}>
                                             <h6 className={styles.product_sleeve_title}>
-                                                SLEEVE
+                                            {translate('word', 'sleeve', 'full')}
                                             </h6>
 
                                             <Row className={styles.product_sleeve_row}>
@@ -229,11 +231,11 @@ const ProductDetail = ({ id }) => {
                                                                     <Button variant='light'
                                                                         className={styles.product_sleeve_select_button}
                                                                         onClick={(e) => onSizeClick(e, prod_sleeve)}>
-                                                                        {prod_sleeve}
+                                                                        {translate('word', prod_sleeve, 'full')}
                                                                     </Button>
                                                                     :
                                                                     <Button variant='light' className={styles.product_sleeve_button} onClick={(e) => onSleeveClick(e, prod_sleeve)}>
-                                                                        {prod_sleeve}
+                                                                        {translate('word', prod_sleeve, 'full')}
                                                                     </Button>
                                                                 }
                                                             </div>
@@ -275,7 +277,7 @@ const ProductDetail = ({ id }) => {
                                         <Col xs={6} sm={6} md={6} lg={6}>
                                             <div className={styles.product_pricing_div}>
                                                 <h6 className={styles.product_pricing_title}>
-                                                    Pricing
+                                                    {translate('word', 'pricing', 'partial')}
                                                 </h6>
 
                                                 <h6>${parseFloat(parseFloat(product.base_pricing) * parseFloat(product_variation.quantity)).toFixed(2)}</h6>
@@ -286,7 +288,7 @@ const ProductDetail = ({ id }) => {
 
                                     <div className={styles.add_button_div}>
                                         <Button variant='outline-light' className={styles.add_button} onClick={(e) => onAddProductCart(e)}>
-                                            ADD TO BAG
+                                        {translate('short phrase', 'add_to_cart', 'full')}
                                         </Button>
                                     </div>
 

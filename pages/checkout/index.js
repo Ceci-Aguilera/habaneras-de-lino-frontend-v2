@@ -7,11 +7,13 @@ import Link from "next/link";
 
 
 import { useCart } from "../../context/CartContext";
+import { useLanguage } from "../../context/LanguageContext";
 import FormField from "../../components/FormField";
 
 const Checkout = () => {
 
     const { cart, makeOrder } = useCart()
+    const { translate } = useLanguage();
     const [loading, setLoading] = useState(true);
 
     const [first_name, setFirstName] = useState('')
@@ -71,7 +73,7 @@ const Checkout = () => {
                 <div className={styles.checkout_wrapper}>
                     <div className={styles.checkout_title_div}>
                         <h2 className={styles.checkout_title}>
-                            Checkout
+                            {translate('word', 'checkout', 'partial')}
                         </h2>
                     </div>
 
@@ -111,7 +113,7 @@ const Checkout = () => {
                                 <div className={styles.divider} />
 
                                 <div className={styles.shipping_info_div}>
-                                    <h4 className={styles.section_title}>Shipping Info</h4>
+                                    <h4 className={styles.section_title}>{translate('short phrase', 'shipping_info', 'partial')}</h4>
                                     <div className={styles.shipping_info_row_div}>
                                         <Row className={styles.shipping_info_row}>
                                             <Col xs={6} sm={6} md={6} lg={6}>
@@ -144,7 +146,7 @@ const Checkout = () => {
                                 <div className={styles.divider} />
 
                                 <div className={styles.shipping_info_div}>
-                                    <h4 className={styles.section_title}>Billing Info</h4>
+                                    <h4 className={styles.section_title}>{translate('short phrase', 'billing_info', 'partial')}</h4>
 
                                     <div className={styles.shipping_info_row_div}>
                                         <Row className={styles.shipping_info_row}>
@@ -172,7 +174,7 @@ const Checkout = () => {
 
                                 <div className={styles.checkout_info_div}>
                                     <Card className={styles.checkout_info_card}>
-                                        <h4 className={styles.section_title}>Purchase Info</h4>
+                                        <h4 className={styles.section_title}>{translate('short phrase', 'purchase_info', 'partial')}</h4>
 
                                         <p className={styles.checkout_info_p}><span className={styles.checkout_info_p_span}>
                                             Subtotal: </span> ${cart ? parseFloat(cart.total_amount).toFixed(2) : "0.00"}
@@ -194,7 +196,7 @@ const Checkout = () => {
 
                                     <div className={styles.purchase_div}>
                                             <Button variant='dark' className={styles.purchase_button} onClick={(e) => onCreateOrder(e)}>
-                                                Make Purchase
+                                            {translate('short phrase', 'make_purchase', 'partial')}
                                             </Button>
                                         </div>
                                 </div>

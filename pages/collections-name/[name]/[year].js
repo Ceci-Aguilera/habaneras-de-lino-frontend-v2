@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import styles from "../../styles/CollectionGrid.module.css";
+import styles from "../../../styles/CollectionGrid.module.css";
 import { Row, Col, Card, Button, Form } from 'react-bootstrap'
-import * as CollectionF from "../../logic/fetchCollections"
+import * as CollectionF from "../../../logic/fetchCollections"
 import Head from 'next/head'
-import * as commonConstants from '../../logic/common-constants'
-import { ArrowLeftIcon, ArrowRightIcon } from "../../components/Icons";
+import * as commonConstants from '../../../logic/common-constants'
+import { ArrowLeftIcon, ArrowRightIcon } from "../../../components/Icons";
 import Link from "next/link";
 
-const CollectionGrid = ({ id }) => {
+const CollectionGrid = ({ name, year }) => {
 
     const [collection, setCollection] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -15,28 +15,34 @@ const CollectionGrid = ({ id }) => {
     const [products, setProducts] = useState([])
     const [currentFirstIndex, setCurrentFirstIndex] = useState(0);
 
+    const body = JSON.stringify({
+        name,
+        year
+    })
+
     useEffect(() => {
         async function awaitCollection() {
-            await CollectionF.fetchCollection(setCollection, id);
+            console.log("Body: ", body)
+            await CollectionF.fetchCollectionsByNameYear(setCollection, body);
         }
         return () => {
             awaitCollection()
         }
-    }, [id])
+    }, [name, year])
 
     useEffect(() => {
         if (collection !== null && collection !== undefined) {
             setLoading(false)
         }
-    }, [collection, id])
+    }, [collection, name, year])
 
     useEffect(() => {
-        if (collection !== null && collection !== undefined && collection.products.length > 0) {
+        if (collection !== null && collection !== undefined && collection[0].products.length > 0) {
             const new_products = []
 
             for (var i = 0; i < commonConstants.PAGINATION_SIZE; i++) {
-                if (i < collection.products.length) {
-                    new_products.push(collection.products[i]);
+                if (i < collection[0].products.length) {
+                    new_products.push(collection[0].products[i]);
                 }
                 else {
                     break;
@@ -52,10 +58,10 @@ const CollectionGrid = ({ id }) => {
 
             const new_products = []
 
-            if (currentFirstIndex < collection.products.length) {
+            if (currentFirstIndex < collection[0].products.length) {
                 for (var i = 0; i < commonConstants.PAGINATION_SIZE; i++) {
-                    if (currentFirstIndex + i < collection.products.length) {
-                        new_products.push(collection.products[currentFirstIndex + i]);
+                    if (currentFirstIndex + i < collection[0].products.length) {
+                        new_products.push(collection[0].products[currentFirstIndex + i]);
                     }
                     else {
                         break;
@@ -68,7 +74,7 @@ const CollectionGrid = ({ id }) => {
 
     const nextArrow = (e) => {
         e.preventDefault();
-        if (currentFirstIndex + commonConstants.PAGINATION_SIZE < collection.products.length) {
+        if (currentFirstIndex + commonConstants.PAGINATION_SIZE < collection[0].products.length) {
             setCurrentFirstIndex(currentFirstIndex + commonConstants.PAGINATION_SIZE)
         }
     }
@@ -79,8 +85,6 @@ const CollectionGrid = ({ id }) => {
             setCurrentFirstIndex(currentFirstIndex - commonConstants.PAGINATION_SIZE)
         }
     }
-
-
 
 
     return (loading) ? <div></div> : (
@@ -94,8 +98,8 @@ const CollectionGrid = ({ id }) => {
             <main className={styles.main}>
                 <div className={styles.collection_div}>
                     <div className={styles.title_div}>
-                        <h1 className={styles.title_h1}>{collection.title} Collection</h1>
-                        <p>{collection.year}</p>
+                        <h1 className={styles.title_h1}>{collection[0].title} Collection</h1>
+                        <p>{collection[0].year}</p>
                     </div>
 
                     <div className={styles.grid_div}>
@@ -152,7 +156,7 @@ const CollectionGrid = ({ id }) => {
                                 : <div></div>
                             }
 
-                            {(currentFirstIndex + commonConstants.PAGINATION_SIZE < collection.products.length) ?
+                            {(currentFirstIndex + commonConstants.PAGINATION_SIZE < collection[0].products.length) ?
                                 <div className={styles.arrow_div}>
                                     <Button className={styles.arrow_button} variant='outline-light' onClick={(e) => nextArrow(e)}>
                                         <ArrowRightIcon className={styles.arrow_icon} height={30} width={30} fill={"lightblue"} />
@@ -170,9 +174,9 @@ const CollectionGrid = ({ id }) => {
 }
 
 CollectionGrid.getInitialProps = async ({ query }) => {
-    const { id } = query;
+    const { name, year } = query;
 
-    return { id };
+    return { name, year };
 };
 
 export default CollectionGrid;

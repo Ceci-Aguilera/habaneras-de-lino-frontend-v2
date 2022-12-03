@@ -94,7 +94,7 @@ const CategoryGrid = ({ id }) => {
             <main className={styles.main}>
                 <div className={styles.collection_div}>
                     <div className={styles.title_div}>
-                        <h1>{category.title}</h1>
+                        <h1 className={styles.title_h1}>{category.title}</h1>
                     </div>
 
                     <div className={styles.grid_div}>

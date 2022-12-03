@@ -19,6 +19,13 @@
     line-height: 350px;
 }
 
+
+.carousel_title{
+    font-family: "Corinthia" !important;
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+
 .cards_div{
     width: 100% !important;
     min-width: 1000px !important;
@@ -29,14 +36,15 @@
 }
 
 .card_div{
-    width: 260px !important;
-    height: 350px;
+    width: 270px !important;
+    height: 328px;
 }
 
 .element_card{
     width: 100% !important;
-    height: 320px;
+    height: 330px;
     border-radius: 0px;
+    border-color: #a2a3ad !important;
 }
 
 .arrow_button{
@@ -48,7 +56,6 @@
     margin-left: auto !important;
     margin-right: auto !important;
     text-align: center !important;
-
     top: 0;
     left: 0;
     position: absolute;

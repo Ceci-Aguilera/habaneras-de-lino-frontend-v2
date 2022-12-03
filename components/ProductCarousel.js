@@ -10,7 +10,7 @@ import Link from 'next/link'
 
 import * as commonConstants from '../logic/common-constants'
 
-const ProductCarousel = ({ collection }) => {
+const ProductCarousel = ({ collection, collectionTitle=false }) => {
 
     const [products, setProducts] = useState([])
     const [currentProducts, setCurrentProducts] = useState([]);
@@ -21,31 +21,32 @@ const ProductCarousel = ({ collection }) => {
     }, [collection])
 
     useEffect(() => {
-        setCurrentProducts([products[0], products[1], products[2]]);
+        setCurrentProducts([products[0], products[1], products[2], products[3]]);
     }, [products])
 
     useEffect(() => {
         setCurrentProducts([products[currentFirstIndex],
         products[(currentFirstIndex + 1) % products.length],
-        products[(currentFirstIndex + 2) % products.length]
+        products[(currentFirstIndex + 2) % products.length],
+        products[(currentFirstIndex + 3) % products.length]
         ]);
     }, [currentFirstIndex])
 
     const nextArrow = (e) => {
         e.preventDefault();
-        setCurrentFirstIndex((currentFirstIndex + 2) % products.length)
+        setCurrentFirstIndex((currentFirstIndex + 3) % products.length)
     }
 
     const prevArrow = (e) => {
         e.preventDefault();
-        setCurrentFirstIndex((currentFirstIndex - 2 + products.length) % products.length)
+        setCurrentFirstIndex((currentFirstIndex - 3 + products.length) % products.length)
     }
 
     return (currentProducts.length == 0 || currentProducts == undefined || currentProducts == null) ?
         <div></div> : (
             <div className={styles.carousel_div}>
                 <h4 className={styles.carousel_title}>
-                    {collection.title}
+                    {collection.title + ' ' + (collectionTitle?'Collection':'')}
                 </h4>
 
                 <div className={styles.carousel_wrapper}>
@@ -66,13 +67,13 @@ const ProductCarousel = ({ collection }) => {
 
                                                     <div className={styles.card_img_div}>
                                                         <img src={current_product.secondary_image.image}
-                                                            height={"318px"} width={"258px"}
+                                                            height={"328px"} width={"268px"}
                                                             className={styles.s_card_img} />
                                                     </div>
 
                                                     <div className={styles.card_img_div}>
                                                         <img src={current_product.primary_image.image}
-                                                            height={"318px"} width={"258px"}
+                                                            height={"328px"} width={"268px"}
                                                             className={styles.card_img} />
                                                     </div>
 
