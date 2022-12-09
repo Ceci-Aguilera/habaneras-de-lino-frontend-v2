@@ -1,47 +1,46 @@
 import { useEffect, useState } from "react";
-import styles from "../../../styles/CollectionGrid.module.css";
+import styles from "../../styles/CollectionGrid.module.css";
 import { Row, Col, Card, Button, Form } from 'react-bootstrap'
-import * as CollectionF from "../../../logic/fetchCollections"
+import * as CategoryF from "../../logic/fetchCategories"
 import Head from 'next/head'
-import * as commonConstants from '../../../logic/common-constants'
-import { ArrowLeftIcon, ArrowRightIcon } from "../../../components/Icons";
+import * as commonConstants from '../../logic/common-constants'
+import { ArrowLeftIcon, ArrowRightIcon } from "../../components/Icons";
 import Link from "next/link";
 
-const CollectionGrid = ({ name, year }) => {
+const CategoryGrid = ({ name }) => {
 
-    const [collection, setCollection] = useState(null);
+    const [category, setCategory] = useState(null);
     const [loading, setLoading] = useState(true);
 
     const [products, setProducts] = useState([])
     const [currentFirstIndex, setCurrentFirstIndex] = useState(0);
 
     const body = JSON.stringify({
-        name: [name],
-        year
+        name: [name]
     })
 
     useEffect(() => {
-        async function awaitCollection() {
-            await CollectionF.fetchCollectionsByNameYear(setCollection, body);
+        async function awaitCategory() {
+            await CategoryF.fetchCategoriesByName(setCategory, body);
         }
         return () => {
-            awaitCollection()
+            awaitCategory()
         }
-    }, [name, year])
+    }, [name])
 
     useEffect(() => {
-        if (collection !== null && collection !== undefined) {
+        if (category !== null && category !== undefined) {
             setLoading(false)
         }
-    }, [collection, name, year])
+    }, [category, name])
 
     useEffect(() => {
-        if (collection !== null && collection !== undefined && collection[0].products.length > 0) {
+        if (category !== null && category !== undefined && category[0].products.length > 0) {
             const new_products = []
 
             for (var i = 0; i < commonConstants.PAGINATION_SIZE; i++) {
-                if (i < collection[0].products.length) {
-                    new_products.push(collection[0].products[i]);
+                if (i < category[0].products.length) {
+                    new_products.push(category[0].products[i]);
                 }
                 else {
                     break;
@@ -49,18 +48,18 @@ const CollectionGrid = ({ name, year }) => {
             }
             setProducts(new_products)
         }
-    }, [collection])
+    }, [category])
 
 
     useEffect(() => {
-        if (collection !== null && collection !== undefined) {
+        if (category !== null && category[0] !== undefined) {
 
             const new_products = []
 
-            if (currentFirstIndex < collection[0].products.length) {
+            if (currentFirstIndex < category[0].products.length) {
                 for (var i = 0; i < commonConstants.PAGINATION_SIZE; i++) {
-                    if (currentFirstIndex + i < collection[0].products.length) {
-                        new_products.push(collection[0].products[currentFirstIndex + i]);
+                    if (currentFirstIndex + i < category[0].products.length) {
+                        new_products.push(category[0].products[currentFirstIndex + i]);
                     }
                     else {
                         break;
@@ -69,11 +68,11 @@ const CollectionGrid = ({ name, year }) => {
                 setProducts(new_products)
             }
         }
-    }, [collection, currentFirstIndex])
+    }, [category, currentFirstIndex])
 
     const nextArrow = (e) => {
         e.preventDefault();
-        if (currentFirstIndex + commonConstants.PAGINATION_SIZE < collection[0].products.length) {
+        if (currentFirstIndex + commonConstants.PAGINATION_SIZE < category[0].products.length) {
             setCurrentFirstIndex(currentFirstIndex + commonConstants.PAGINATION_SIZE)
         }
     }
@@ -97,8 +96,8 @@ const CollectionGrid = ({ name, year }) => {
             <main className={styles.main}>
                 <div className={styles.collection_div}>
                     <div className={styles.title_div}>
-                        <h1 className={styles.title_h1}>{collection[0].title} Collection</h1>
-                        <p>{collection[0].year}</p>
+                        <h1 className={styles.title_h1}>{category[0].title}</h1>
+                        <p>{category[0].year}</p>
                     </div>
 
                     <div className={styles.grid_div}>
@@ -155,7 +154,7 @@ const CollectionGrid = ({ name, year }) => {
                                 : <div></div>
                             }
 
-                            {(currentFirstIndex + commonConstants.PAGINATION_SIZE < collection[0].products.length) ?
+                            {(currentFirstIndex + commonConstants.PAGINATION_SIZE < category[0].products.length) ?
                                 <div className={styles.arrow_div}>
                                     <Button className={styles.arrow_button} variant='outline-light' onClick={(e) => nextArrow(e)}>
                                         <ArrowRightIcon className={styles.arrow_icon} height={30} width={30} fill={"lightblue"} />
@@ -172,10 +171,10 @@ const CollectionGrid = ({ name, year }) => {
 
 }
 
-CollectionGrid.getInitialProps = async ({ query }) => {
-    const { name, year } = query;
+CategoryGrid.getInitialProps = async ({ query }) => {
+    const { name } = query;
 
-    return { name, year };
+    return { name };
 };
 
-export default CollectionGrid;
+export default CategoryGrid;

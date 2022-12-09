@@ -45,6 +45,7 @@
     height: 330px;
     border-radius: 0px;
     border-color: #a2a3ad !important;
+    cursor: pointer;
 }
 
 .arrow_button{
