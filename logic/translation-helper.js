@@ -68,7 +68,7 @@ const words = {
         es:'información'
     },
     more: {
-        en:'more',
+        en:'view more',
         es:'ver más'
     },
     size: {
@@ -106,6 +106,14 @@ const words = {
     quantity: {
         en:'quantity',
         es:'cantidad'
+    },
+    women: {
+        en:'women',
+        es:'mujeres'
+    },
+    men: {
+        en:'men',
+        es:'hombres'
     }
 }
 

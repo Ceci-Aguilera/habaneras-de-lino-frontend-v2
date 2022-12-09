@@ -21,7 +21,11 @@ const Index = () => {
 
   useEffect(() => {
     async function awaitCollections() {
-      await collectionF.fetchCollectionsByNameYear(setCollections, commonConstants.principalCollections);
+      const body = JSON.stringify({
+        name:  commonConstants.principalCollections.names,
+        year:  commonConstants.principalCollections.year
+      })
+      await collectionF.fetchCollectionsByNameYear(setCollections, body);
     }
     async function awaitCategories() {
       await categoryF.fetchCategories(setCategories);

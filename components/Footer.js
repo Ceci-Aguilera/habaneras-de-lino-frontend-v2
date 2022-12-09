@@ -22,25 +22,25 @@ export default function Footer() {
                                 </a>
                             </Link>
 
-                            <Link href="#">
+                            <Link href="/categories-name/Guayaberas">
                                 <a className={styles.footerLinkP}>
                                     Guayaberas
                                 </a>
                             </Link>
 
-                            <Link href="#">
+                            <Link href="/categories-name/Guayamisas">
                                 <a className={styles.footerLinkP}>
                                     Guayamisas
                                 </a>
                             </Link>
 
-                            <Link href="#">
+                            <Link href="/categories-name/Camisas">
                                 <a className={styles.footerLinkP}>
                                     Shirts
                                 </a>
                             </Link>
 
-                            <Link href="#">
+                            <Link href="/categories-name/Pantalones">
                                 <a className={styles.footerLinkP}>
                                     Pants
                                 </a>
@@ -66,19 +66,19 @@ export default function Footer() {
                                 </a>
                             </Link>
 
-                            <Link href="#">
+                            <Link href="/collections-name/Etnik/2022">
                                 <a className={styles.footerLinkP}>
                                     Etnik
                                 </a>
                             </Link>
 
-                            <Link href="#">
+                            <Link href="/collections-name/Cittadino/2022">
                                 <a className={styles.footerLinkP}>
                                     Cittadino
                                 </a>
                             </Link>
 
-                            <Link href="#">
+                            <Link href="/collections-name/Valladolid/2022">
                                 <a className={styles.footerLinkP}>
                                     Valladolid
                                 </a>

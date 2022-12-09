@@ -79,7 +79,7 @@ const ProductCarousel = ({ collection, collectionTitle=false }) => {
 
                                                 </Card>
                                             </Link>
-                                            <p className={styles.card_info}>{commonConstants.TruncateLongString(current_product.name)}</p>
+                                            <p className={styles.card_info}>{commonConstants.TruncateLongString(current_product.name).toUpperCase()}</p>
                                         </>
                                         : <div></div>}
                                 </div>

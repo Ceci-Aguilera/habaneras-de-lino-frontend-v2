@@ -1,3 +1,13 @@
+.enzomen_title_div{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.enzomen_title{
+    font-size: 5rem !important;
+    font-weight: bold;
+}
+
 .collections_div,
 .categories_div{
     width: 100%;
@@ -44,4 +54,65 @@
     background-color: rgb(206, 228, 235) !important;
     border: 1px solid black !important;
     border-radius: 0 !important;
+}
+
+.collections_grid_container{
+    max-width: 1500px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center !important;
+}
+
+.collections_grid_container_wrapper{
+    height: 500px;
+    width: 300px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center !important;
+}
+
+.collections_grid_container_card,
+.collections_grid_container_card_body{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    border: 0px !important;
+    cursor: pointer;
+}
+
+.collections_grid_container_card_img{
+    height: 400px;
+    width: 300px;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.collections_grid_container_card_footer{
+    background-color: transparent;
+    border: 0px !important;
+}
+
+.collection_grid_button{
+    background-color: transparent;
+    font-size: 2rem;
+    border-color: transparent;
+}
+
+.collection_grid_button:hover{
+    background-color: rgb(204, 221, 236);
+    border-color: transparent;
+}
+
+.collections_grid_title_div{
+    text-align: center !important;
+}
+
+.collections_grid_title{
+    font-family: 'Corinthia'!important;
+    font-size: 4rem;
 }

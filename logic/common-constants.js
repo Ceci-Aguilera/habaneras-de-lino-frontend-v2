@@ -1,6 +1,7 @@
-export const principalCollections = [{
-    name: 'Luxury', year: '2022'
-}]
+export const principalCollections = {
+    names: ['Luxury'],
+    year: '2022'
+}
 
 export const defaultProduct = {
     product: null,

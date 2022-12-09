@@ -13,3 +13,8 @@ export async function fetchCategory(setCategory, category_id){
     const endpoint = `store/categories/${category_id}/`
     await fetchSetter(endpoint, setCategory)
 }
+
+export async function fetchCategoriesByName(setCategories, body){
+    const endpoint = `store/categories/filter/names/`
+    await fetchSetterPOST(endpoint, body, setCategories);
+}
