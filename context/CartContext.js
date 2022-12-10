@@ -219,7 +219,8 @@ export const CartProvider = ({ children }) => {
                 })
                 .catch((error) => {
                     console.log("Error while adding a new product to a cart ", error);
-                    setOrderResult('Error')
+                    console.log(error.response)
+                    setOrderResult(['Error', error.response.data['Result']])
                 });
     }
 

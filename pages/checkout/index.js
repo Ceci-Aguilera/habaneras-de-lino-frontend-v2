@@ -24,7 +24,7 @@ const Checkout = () => {
     const [street, setStreet] = useState('')
     const [apt, setApt] = useState('')
     const [city, setCity] = useState('')
-    const [usa_state, setUsaState] = useState('')
+    const [usa_state, setUsaState] = useState('Alabama')
     const [zipCode, setZipCode] = useState('')
 
     const [card_number, setCardNumber] = useState('')
@@ -32,7 +32,7 @@ const Checkout = () => {
     const [card_expYear, setCardExpYear] = useState('')
     const [card_cvc, setCardCvc] = useState('')
 
-    const [orderResult, setOrderResult] = useState(null);
+    const [orderResult, setOrderResult] = useState([null, null]);
     const [message, setMessage] = useState('');
 
     useEffect(() => {
@@ -65,11 +65,11 @@ const Checkout = () => {
     }
 
     useEffect(() => {
-        if (orderResult === 'Success') {
+        if (orderResult[0] === 'Success') {
             setMessage('Success')
         }
-        if (orderResult === 'Error') {
-            setMessage('Error during payment')
+        if (orderResult[0] === 'Error') {
+            setMessage(orderResult[1])
         }
     }, [orderResult])
 
@@ -90,10 +90,12 @@ const Checkout = () => {
                         </h2>
                     </div>
 
-                    {orderResult === 'Error' ?
+                    {orderResult[0] === 'Error' ?
                         <div className={styles.checkout_error_div}>
-                          <p className={styles.checkout_error_description}><span className={styles.checkout_error}>Error: </span>An error occurred during payment. Please check the information
-                          and try again. If the error persist, please contact the store admin at <span className={styles.checkout_error_link}>sales@habanerasdelino.com</span></p> 
+                            <p className={styles.checkout_error_description}><span className={styles.checkout_error}> {message} </span></p>
+
+                            <p className={styles.checkout_error_description}><span className={styles.checkout_error}>Error: </span>An error occurred during payment. Please check the information
+                                and try again. If the error persist, please contact the store admin at <span className={styles.checkout_error_link}>sales@habanerasdelino.com</span></p>
                         </div>
                         :
                         <div></div>
@@ -154,7 +156,16 @@ const Checkout = () => {
                                                 <FormField title='City' placeholder='City' value={city} setValue={setCity} valueType='text' />
                                             </Col>
                                             <Col xs={4} sm={4} md={4} lg={4}>
-                                                <FormField title='State' placeholder='TEXAS' value={usa_state} setValue={setUsaState} valueType='text' />
+                                                <Form.Group className={`mb-3 ${styles.formGroup}`} controlId="formBasicEmail">
+                                                    <Form.Label className={styles.formLabel} onChange={(e) => setUsaState(e.target.value)}>State</Form.Label>
+                                                    <Form.Select size='sm'>
+                                                        {commonConstants.usaStateArray.map((usa_state_item, usaStateIndex) => {
+                                                            return (
+                                                                <option key={usaStateIndex} value={usa_state_item}>{usa_state_item}</option>
+                                                            );
+                                                        })}
+                                                    </Form.Select>
+                                                </Form.Group>
                                             </Col>
                                             <Col xs={4} sm={4} md={4} lg={4}>
                                                 <FormField title='Zip Code' placeholder='12345' value={zipCode} setValue={setZipCode} valueType='text' />

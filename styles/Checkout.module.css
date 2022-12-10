@@ -95,6 +95,10 @@
     text-decoration: underline 1px solid rgb(128, 137, 154);
 }
 
+.formLabel{
+    font-size: 0.8rem !important;
+}
+
 @media only screen and (max-width: 768px){
     .checkout_wrapper{
         width: 350px !important;
