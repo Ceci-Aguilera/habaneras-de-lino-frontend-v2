@@ -2,8 +2,12 @@ import styles from "../styles/Footer.module.css"
 import { Row, Col } from "react-bootstrap"
 import Link from "next/link"
 import { FacebookIcon, InstagramIcon } from "../components/Icons"
+import { useLanguage } from "../context/LanguageContext"
 
 export default function Footer() {
+
+    const { language, translate } = useLanguage();
+
     return (
         <div className={styles.footerDiv}>
 
@@ -16,7 +20,7 @@ export default function Footer() {
                         </h4>
 
                         <div className={styles.footerLinkDiv}>
-                            <Link href="#">
+                            <Link href="/enzo-men/">
                                 <a className={styles.footerLinkP}>
                                     All Categories
                                 </a>
@@ -54,7 +58,7 @@ export default function Footer() {
                         </h4>
 
                         <div className={styles.footerLinkDiv}>
-                            <Link href="#">
+                            <Link href="/enzo-men/">
                                 <a className={styles.footerLinkP}>
                                     All Collections
                                 </a>
@@ -88,25 +92,31 @@ export default function Footer() {
 
                     <Col xs={4} sm={4} md={4} lg={4} className={styles.footerCol}>
                         <h4 className={styles.footerTitle}>
-                        About Us
+                            About
                         </h4>
 
                         <div className={styles.footerLinkDiv}>
-                            <Link href="#">
+                            <Link href="#discounts">
                                 <a className={styles.footerLinkP}>
-                                    Wholesales Policy
+                                    {language == 'en' ? "Wholesalers Discount" : "Mayoristas"}
                                 </a>
                             </Link>
 
-                            <Link href="#">
+                            <Link href="#customization">
                                 <a className={styles.footerLinkP}>
-                                    Shipping Info
+                                    {language == 'en' ? "Customozations" : "Personalizar"}
                                 </a>
                             </Link>
 
-                            <Link href="#">
+                            <Link href="#about_us">
                                 <a className={styles.footerLinkP}>
-                                    Contact Us
+                                    {language == 'en' ? "About Us" : "Nosotros"}
+                                </a>
+                            </Link>
+
+                            <Link href="#about_shipping">
+                                <a className={styles.footerLinkP}>
+                                    {language == 'en' ? "Shipping" : "Envíos"}
                                 </a>
                             </Link>
 
@@ -133,6 +143,6 @@ export default function Footer() {
 
             </div>
 
-        </div>
+        </div >
     )
 }

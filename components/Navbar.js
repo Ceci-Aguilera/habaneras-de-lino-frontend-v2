@@ -10,7 +10,7 @@ import { useLanguage } from '../context/LanguageContext'
 export default function NextNavbar() {
 
     const { cart } = useCart();
-    const { translate } = useLanguage();
+    const { language, translate } = useLanguage();
 
     return (
         <Navbar className={styles.navbar} collapseOnSelect expand="lg" bg="light" variant="light">
@@ -80,6 +80,22 @@ export default function NextNavbar() {
                                 Pants
                             </NavDropdown.Item>
                         </NavDropdown>
+
+                        <Nav.Link className={styles.navLink} href="#discounts">
+                            {language=='en'?"Wholesalers Discount": "Mayoristas"}
+                        </Nav.Link>
+
+                        <Nav.Link className={styles.navLink} href="#customization">
+                            {language=='en'?"Customozations": "Personalizar"}
+                        </Nav.Link>
+
+                        <Nav.Link className={styles.navLink} href="#about_us">
+                            {language=='en'?"About Us": "Nosotros"}
+                        </Nav.Link>
+
+                        <Nav.Link className={styles.navLink} href="#about_shipping">
+                            {language=='en'?"Shipping": "Envíos"}
+                        </Nav.Link>
                     </Nav>
                     <Nav>
                         <Nav.Link href="/cart"><ShoppingBag height="30" width="30" fill="black" /> <span className={styles.cart_count}>
