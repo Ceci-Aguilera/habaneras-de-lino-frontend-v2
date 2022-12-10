@@ -39,13 +39,13 @@ const Cart = () => {
 
                     <div className={styles.cart_title_div}>
                         <Row className={styles.cart_title_row}>
-                            <Col xs={3} sm={3} md={3} lg={3} className={styles.cart_title_col}></Col>
+                            <Col xs={0} sm={3} md={3} lg={3} className={styles.cart_title_col}></Col>
                             <Col xs={6} sm={6} md={6} lg={6} className={styles.cart_title_col}>
                                 <div className={styles.cart_title_col_div}>
                                     <h1 className={styles.cart_title}>{translate('word', 'cart', 'partial')}</h1>
                                 </div>
                             </Col>
-                            <Col xs={3} sm={3} md={3} lg={3} className={styles.cart_title_col}>
+                            <Col xs={6} sm={3} md={3} lg={3} className={styles.cart_title_col}>
                                 <div className={styles.cart_checkout_col_div}>
                                     <Link href='/checkout'>
                                         <Button variant="dark" size='lg' className={styles.checkout_button}>

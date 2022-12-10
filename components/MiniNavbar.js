@@ -18,11 +18,9 @@ export default function MiniNavbar() {
     return (
         <Navbar className={styles.miniNavbar} collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                     </Nav>
-                    <Nav>
+                    <Nav className={styles.miniNavbarNav}>
                         <div className={styles.miniNavbarButtonDiv}>
                         <Button variant='primary' className={styles.miniNavbarButton} onClick={(e) => tranlationHelper(e, 'es')}>
                             {"ESPAÑOL".toLocaleUpperCase()}
@@ -35,7 +33,6 @@ export default function MiniNavbar() {
                         </Button>
                         </div>
                     </Nav>
-                </Navbar.Collapse>
             </Container>
         </Navbar>
     )

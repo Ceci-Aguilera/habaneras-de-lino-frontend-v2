@@ -225,7 +225,7 @@ const ProductDetail = ({ id }) => {
                                             <Row className={styles.product_sleeve_row}>
                                                 {commonConstants.productSleeves[product.tag].map((prod_sleeve, prod_sleeve_idx) => {
                                                     return (
-                                                        <Col xs={4} sm={4} md={4} lg={4} className={styles.product_sleeve_col} key={prod_sleeve_idx}>
+                                                        <Col xs={6} sm={4} md={4} lg={4} className={styles.product_sleeve_col} key={prod_sleeve_idx}>
                                                             <div className={styles.product_sleeve_element_div}>
                                                                 {product_variation.sleeve == prod_sleeve ?
                                                                     <Button variant='light'

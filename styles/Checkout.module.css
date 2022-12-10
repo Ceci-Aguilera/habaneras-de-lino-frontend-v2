@@ -68,3 +68,35 @@
     border-radius: 0px !important;
     text-align: center !important;
 }
+
+.checkout_error_div{
+    width: 95% !important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    border: 2px solid rgb(175, 19, 50);
+    text-align: justify !important;
+    background-color: rgb(240, 197, 197);
+}
+
+.checkout_error_description{
+    color: black !important;
+}
+
+.checkout_error{
+    color: black;
+    font-weight: bold;
+}
+
+.checkout_error_link{
+    text-decoration: underline 1px solid rgb(128, 137, 154);
+}
+
+@media only screen and (max-width: 768px){
+    .checkout_wrapper{
+        width: 350px !important;
+    }
+}

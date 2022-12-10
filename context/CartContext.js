@@ -207,7 +207,7 @@ export const CartProvider = ({ children }) => {
             });
     };
 
-    const makeOrder = async(body) => {
+    const makeOrder = async(body, setOrderResult) => {
         const config = get_const_config()
         const order_url = domain + `/store/orders/`;
             return await axios
@@ -219,6 +219,7 @@ export const CartProvider = ({ children }) => {
                 })
                 .catch((error) => {
                     console.log("Error while adding a new product to a cart ", error);
+                    setOrderResult('Error')
                 });
     }
 

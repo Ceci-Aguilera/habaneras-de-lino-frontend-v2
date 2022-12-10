@@ -18,3 +18,9 @@
     margin-top: -5px;
     font-weight: 700;
   }
+
+  @media only screen and (max-width: 758px) {
+    .title{
+        font-size: 3rem !important;
+    }
+  }

@@ -65,9 +65,9 @@ const Index = () => {
                         <h2 className={styles.collections_grid_title}>Categories</h2>
                     </div>
                     <Row className={styles.collections_grid_container_row}>
-                        {categories.map((category, collectionIndex) => {
+                        {categories.map((category, categoryIndex) => {
                             return (
-                                <Col key={'collection_grid_' + collectionIndex} xs={12} sm={12} md={12} lg={3} className={styles.collections_grid_container_col}>
+                                <Col key={'category_grid_' + categoryIndex} xs={12} sm={12} md={12} lg={3} className={styles.collections_grid_container_col}>
                                     <div className={styles.collections_grid_container_wrapper}>
                                         <Link href={`/categories/${category.id}`}>
                                             <Card className={styles.collections_grid_container_card}>
@@ -138,18 +138,20 @@ const Index = () => {
                     })}
                 </div>
 
+                
+
                 <div className={styles.categories_div}>
 
                     {categories.map((category, category_idx) => {
                         return (
                             <div key={category_idx}>
-                                {(category.products.length) > 2 ?
+                                {(category.products.length) > 0 ?
                                     <div className={styles.category_div}>
                                         <ProductCarousel collection={category} />
                                         <div className={styles.category_button_div}>
                                             <Link href={`/categories/${category.id}`}>
                                                 <Button variant='light' className={styles.category_button}>
-                                                    MORE
+                                                {translate('word', 'more', 'full')}
                                                 </Button>
                                             </Link>
                                         </div>

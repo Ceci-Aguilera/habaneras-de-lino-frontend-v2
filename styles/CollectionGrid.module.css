@@ -117,3 +117,31 @@
     margin-right: auto !important;
     text-align: center !important;
 }
+
+.title_h1_mobile{
+    display: none;
+}
+
+@media only screen and (max-width: 1472px){
+    .title_h1{
+        font-size: 2.5rem !important;
+    }
+    
+    .grid_col{
+        width: 50% !important;
+    }
+}
+
+@media only screen and (max-width: 758px){
+    .title_h1{
+        display: none !important;
+    }
+    
+    .grid_col{
+        width: 100% !important;
+    }
+
+    .title_h1_mobile{
+        display: block;
+    }
+}

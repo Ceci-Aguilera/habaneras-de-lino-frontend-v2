@@ -6,8 +6,9 @@ import Head from 'next/head'
 import * as commonConstants from '../../logic/common-constants'
 import { ArrowLeftIcon, ArrowRightIcon } from "../../components/Icons";
 import Link from "next/link";
+import Banner from "../../components/Banner";
 
-const CategoryGrid = ({ name }) => {
+const CategoryGridName = ({ name }) => {
 
     const [category, setCategory] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -94,10 +95,14 @@ const CategoryGrid = ({ name }) => {
             </Head>
 
             <main className={styles.main}>
+
+            <Banner image_source={category[0].image} fromPublic={false} tagLineBool={true}
+                 tagLine={`${category[0].title}`}/>
+
                 <div className={styles.collection_div}>
                     <div className={styles.title_div}>
-                        <h1 className={styles.title_h1}>{category[0].title}</h1>
-                        <p>{category[0].year}</p>
+                    <h1 className={styles.title_h1}>Luxurious, comfortable, and modern ... </h1>
+                    <h1 className={styles.title_h1_mobile}>{category[0].title}</h1>
                     </div>
 
                     <div className={styles.grid_div}>
@@ -148,7 +153,7 @@ const CategoryGrid = ({ name }) => {
                             {(currentFirstIndex - commonConstants.PAGINATION_SIZE >= 0) ?
                                 <div className={styles.arrow_div}>
                                     <Button className={styles.arrow_button} variant='outline-light' onClick={(e) => prevArrow(e)}>
-                                        <ArrowLeftIcon className={styles.arrow_icon} height={30} width={30} fill={"lightblue"} />
+                                        <ArrowLeftIcon className={styles.arrow_icon} height={40} width={40} fill={"lightblue"} />
                                     </Button>
                                 </div>
                                 : <div></div>
@@ -157,7 +162,7 @@ const CategoryGrid = ({ name }) => {
                             {(currentFirstIndex + commonConstants.PAGINATION_SIZE < category[0].products.length) ?
                                 <div className={styles.arrow_div}>
                                     <Button className={styles.arrow_button} variant='outline-light' onClick={(e) => nextArrow(e)}>
-                                        <ArrowRightIcon className={styles.arrow_icon} height={30} width={30} fill={"lightblue"} />
+                                        <ArrowRightIcon className={styles.arrow_icon} height={40} width={40} fill={"lightblue"} />
                                     </Button>
                                 </div>
                                 : <div></div>
@@ -171,10 +176,10 @@ const CategoryGrid = ({ name }) => {
 
 }
 
-CategoryGrid.getInitialProps = async ({ query }) => {
+CategoryGridName.getInitialProps = async ({ query }) => {
     const { name } = query;
 
     return { name };
 };
 
-export default CategoryGrid;
+export default CategoryGridName;

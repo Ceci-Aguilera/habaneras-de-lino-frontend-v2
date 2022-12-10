@@ -10,49 +10,70 @@ import Link from 'next/link'
 
 import * as commonConstants from '../logic/common-constants'
 
-const ProductCarousel = ({ collection, collectionTitle=false }) => {
+import useWindowSize from './WindowSizeHook'
+
+const ProductCarousel = ({ collection, collectionTitle = false }) => {
 
     const [products, setProducts] = useState([])
     const [currentProducts, setCurrentProducts] = useState([]);
     const [currentFirstIndex, setCurrentFirstIndex] = useState(0);
+
+    const {amountOfProducts, amountOfTime} = useWindowSize();
 
     useEffect(() => {
         setProducts(collection.products)
     }, [collection])
 
     useEffect(() => {
-        setCurrentProducts([products[0], products[1], products[2], products[3]]);
+        var productArray = new Array();
+        for (var i = 0; i < amountOfProducts; i++){
+            productArray.push(products[i])
+        }
+        setCurrentProducts(productArray);
     }, [products])
 
     useEffect(() => {
-        setCurrentProducts([products[currentFirstIndex],
-        products[(currentFirstIndex + 1) % products.length],
-        products[(currentFirstIndex + 2) % products.length],
-        products[(currentFirstIndex + 3) % products.length]
-        ]);
+        if(currentFirstIndex !== null){
+
+            var productArray = new Array();
+            for (var i = 0; i < amountOfProducts; i++){
+                productArray.push(products[currentFirstIndex + i])
+            }
+            
+            console.log("Index 2: ", currentFirstIndex + 0)
+            setCurrentProducts(productArray);
+        }
     }, [currentFirstIndex])
 
-    const nextArrow = (e) => {
-        e.preventDefault();
-        setCurrentFirstIndex((currentFirstIndex + 3) % products.length)
+    const nextArrow = (e=null) => {
+        if(e !== null) e.preventDefault();
+        setCurrentFirstIndex((currentFirstIndex + amountOfProducts) % products.length)
     }
 
     const prevArrow = (e) => {
         e.preventDefault();
-        setCurrentFirstIndex((currentFirstIndex - 3 + products.length) % products.length)
+        setCurrentFirstIndex((currentFirstIndex - amountOfProducts + products.length) % products.length)
     }
+
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         console.log('Next Arrow')
+    //       nextArrow();
+    //     }, amountOfTime);
+    //     return () => clearTimeout(timer);
+    //   });
 
     return (currentProducts.length == 0 || currentProducts == undefined || currentProducts == null) ?
         <div></div> : (
             <div className={styles.carousel_div}>
                 <h4 className={styles.carousel_title}>
-                    {collection.title + ' ' + (collectionTitle?'Collection':'')}
+                    {collection.title + ' ' + (collectionTitle ? 'Collection' : '')}
                 </h4>
 
                 <div className={styles.carousel_wrapper}>
                     <div className={styles.arrow_div}>
                         <Button className={styles.arrow_button} variant='outline-light' onClick={(e) => prevArrow(e)}>
-                            <ArrowLeftIcon className={styles.arrow_icon} height={30} width={30} fill={"lightblue"} />
+                            <ArrowLeftIcon className={styles.arrow_icon} height={40} width={40} fill={"lightblue"} />
                         </Button>
                     </div>
 
@@ -63,7 +84,7 @@ const ProductCarousel = ({ collection, collectionTitle=false }) => {
                                     {current_product ?
                                         <>
                                             <Link href={`products/${current_product.id}`}>
-                                                <Card className={styles.element_card}>
+                                                <Card className={`${styles.element_card}`}>
 
                                                     <div className={styles.card_img_div}>
                                                         <img src={current_product.secondary_image.image}
@@ -79,7 +100,9 @@ const ProductCarousel = ({ collection, collectionTitle=false }) => {
 
                                                 </Card>
                                             </Link>
-                                            <p className={styles.card_info}>{commonConstants.TruncateLongString(current_product.name).toUpperCase()}</p>
+                                            <div className={`${styles.product_card_footer}`}>
+                                                <p className={styles.card_info}>{commonConstants.TruncateLongString(current_product.name).toUpperCase()}</p>
+                                            </div>
                                         </>
                                         : <div></div>}
                                 </div>
@@ -89,7 +112,7 @@ const ProductCarousel = ({ collection, collectionTitle=false }) => {
 
                     <div className={styles.arrow_div}>
                         <Button className={styles.arrow_button} variant='outline-light' onClick={(e) => nextArrow(e)}>
-                            <ArrowRightIcon className={styles.arrow_icon} height={30} width={30} fill={"lightblue"} />
+                            <ArrowRightIcon className={styles.arrow_icon} height={40} width={40} fill={"lightblue"} />
                         </Button>
                     </div>
                 </div>

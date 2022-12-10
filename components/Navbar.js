@@ -22,7 +22,7 @@ export default function NextNavbar() {
                         <NavDropdown
                             title={translate('word', 'women', 'full')}
                             className={styles.navbar_navdropdown}
-                            menuVariant="dark"
+                            menuVariant="light"
                             active={true}
                         >
                             <NavDropdown.Item href="#">
@@ -50,7 +50,7 @@ export default function NextNavbar() {
                                     Luxury
                                 </NavDropdown.Item>
 
-                                <NavDropdown.Item href="/collections-name/Luxury/2022">
+                                <NavDropdown.Item href="/collections-name/Etnik/2022">
                                     Etnik
                                 </NavDropdown.Item>
 

@@ -32,13 +32,16 @@ const Checkout = () => {
     const [card_expYear, setCardExpYear] = useState('')
     const [card_cvc, setCardCvc] = useState('')
 
+    const [orderResult, setOrderResult] = useState(null);
+    const [message, setMessage] = useState('');
+
     useEffect(() => {
         if (cart !== null && cart !== undefined) {
             setLoading(false)
         }
     }, [cart])
 
-    const onCreateOrder = async(e) => {
+    const onCreateOrder = async (e) => {
         e.preventDefault();
         const body = JSON.stringify({
             cart: cart.id,
@@ -58,8 +61,17 @@ const Checkout = () => {
             exp_year: card_expYear,
             cvc: card_cvc
         })
-        await makeOrder(body)
+        await makeOrder(body, setOrderResult)
     }
+
+    useEffect(() => {
+        if (orderResult === 'Success') {
+            setMessage('Success')
+        }
+        if (orderResult === 'Error') {
+            setMessage('Error during payment')
+        }
+    }, [orderResult])
 
     return (loading) ? <div>No order for checkout</div> : (
         <>
@@ -71,11 +83,21 @@ const Checkout = () => {
 
             <main className={styles.main}>
                 <div className={styles.checkout_wrapper}>
+
                     <div className={styles.checkout_title_div}>
                         <h2 className={styles.checkout_title}>
                             {translate('word', 'checkout', 'partial')}
                         </h2>
                     </div>
+
+                    {orderResult === 'Error' ?
+                        <div className={styles.checkout_error_div}>
+                          <p className={styles.checkout_error_description}><span className={styles.checkout_error}>Error: </span>An error occurred during payment. Please check the information
+                          and try again. If the error persist, please contact the store admin at <span className={styles.checkout_error_link}>sales@habanerasdelino.com</span></p> 
+                        </div>
+                        :
+                        <div></div>
+                    }
 
                     <div className={styles.checkout_form_div}>
                         <Row className={styles.checkout_row}>
@@ -185,20 +207,20 @@ const Checkout = () => {
                                         </p>
 
                                         <p className={styles.checkout_info_p}><span className={styles.checkout_info_p_span}>
-                                            Total (Taxes + Shipping): </span> ${cart ? 
-                                            parseFloat(parseFloat(cart.total_amount) + parseFloat(cart.total_amount) * 0.07).toFixed(2) : "0.00"
-                                        }
+                                            Total (Taxes + Shipping): </span> ${cart ?
+                                                parseFloat(parseFloat(cart.total_amount) + parseFloat(cart.total_amount) * 0.07).toFixed(2) : "0.00"
+                                            }
                                         </p>
 
                                     </Card>
 
-                                    
+
 
                                     <div className={styles.purchase_div}>
-                                            <Button variant='dark' className={styles.purchase_button} onClick={(e) => onCreateOrder(e)}>
+                                        <Button variant='dark' className={styles.purchase_button} onClick={(e) => onCreateOrder(e)}>
                                             {translate('short phrase', 'make_purchase', 'partial')}
-                                            </Button>
-                                        </div>
+                                        </Button>
+                                    </div>
                                 </div>
                             </Col>
                         </Row>

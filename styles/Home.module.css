@@ -11,7 +11,7 @@
 .collections_div,
 .categories_div{
     width: 100%;
-    margin-top: 50px;
+    margin-top: 100px;
     text-align: center;
 }
 
@@ -29,7 +29,7 @@
 
 .collection_button_div,
 .category_button_div{
-    margin-top: 30px;
+    margin-top: 50px;
     margin-left: auto !important;
     margin-right: auto !important;
     text-align: center !important;
@@ -37,10 +37,9 @@
 
 .collection_button,
 .category_button{
-    width: 100%;
-    max-width: 150px;
+    font-size: 1.3rem;
     border: 1px solid black !important;
-    border-radius: 0 !important;
+    border-radius: 5 !important;
 }
 
 .collection_button:hover,
@@ -53,7 +52,7 @@
 .category_button:focus{
     background-color: rgb(206, 228, 235) !important;
     border: 1px solid black !important;
-    border-radius: 0 !important;
+    border-radius: 5px !important;
 }
 
 .collections_grid_container{
@@ -115,4 +114,23 @@
 .collections_grid_title{
     font-family: 'Corinthia'!important;
     font-size: 4rem;
+}
+
+.infor_section{
+    width: 80% !important;
+    max-width: 800px;
+    margin-top: 50px !important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+    text-align: justify !important;
+}
+
+.info_section_title_div{
+    text-align: center!important;
+    margin-bottom: 20px;
+}
+
+.info_section_title{
+    font-family: 'Corinthia'!important;
+    font-size: 3rem;
 }

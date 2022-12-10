@@ -11,19 +11,22 @@ import { Button } from 'react-bootstrap'
 import * as commonConstants from '../logic/common-constants'
 import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext'
+import Banner from '../components/Banner'
+
+const BANNER_IMAGE_SRC = '/images/banner.jpg';
 
 const Index = () => {
 
   const [collections, setCollections] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
-  const {translate} = useLanguage()
+  const { translate } = useLanguage()
 
   useEffect(() => {
     async function awaitCollections() {
       const body = JSON.stringify({
-        name:  commonConstants.principalCollections.names,
-        year:  commonConstants.principalCollections.year
+        name: commonConstants.principalCollections.names,
+        year: commonConstants.principalCollections.year
       })
       await collectionF.fetchCollectionsByNameYear(setCollections, body);
     }
@@ -41,7 +44,7 @@ const Index = () => {
       setLoading(false)
     }
   }, [collections, categories])
-  
+
 
   return (loading) ? <div></div> : (
     <div className={styles.container}>
@@ -53,6 +56,9 @@ const Index = () => {
       </Head>
 
       <main className={styles.main}>
+
+        <Banner image_source={BANNER_IMAGE_SRC} tagLineBool={true} tagLine='Luxurios, Comfortable, and Modern ...' />
+
         <div className={styles.collections_div}>
 
           {collections.map((collection, collectionIndex) => {
@@ -93,6 +99,78 @@ const Index = () => {
               </div>
             )
           })}
+        </div>
+
+        <div className={styles.infor_section}>
+
+          <div className={styles.info_section_title_div}>
+            <h2 className={styles.info_section_title}>Wholesaler's Discount</h2>
+          </div>
+
+          <div className={styles.info_section_description_div}>
+            <p className={styles.infor_section_description}>Our sells' policy at <strong>Habaneras de Lino</strong> encourages wholesalers to buy <strong>guayaberas</strong> and
+             all <strong>linen and cotton clothing</strong> available at our website. We offer specific discounts when buying at least 12 units. The kind and the amount of
+              the discount depend on the number of units to purchase, but our main and most popular ones are for purchases of 12 units,
+              24 units, 50 units, and +50 units. To know more about these discounts, contact us via email at <strong>sales@habanerasdelino.com</strong> or <strong>WhatsApp</strong> (+1 941 447 5126).
+            </p>
+          </div>
+
+
+        </div>
+
+        <div className={styles.infor_section}>
+
+          <div className={styles.info_section_title_div}>
+            <h2 className={styles.info_section_title}>Customization</h2>
+          </div>
+
+          <div className={styles.info_section_description_div}>
+
+            <p className={styles.infor_section_description}>Because all of our products are carefully <strong>made by hand</strong>, we welcome clients to ask for customizations
+              beyond what is it being offered at our website. We can make modifications to the size/color and decorative shapes for any product offere. To know more about
+              this policy or to order a customized product contact us at <strong>sales@habanerasdelino.com</strong> or <strong>WhatsApp</strong> (+1 941 447 5126). For this customization, the shipping time
+              may vary depending on its complexity. For more information about shipping, please refer to our section "About Shipping".
+            </p>
+          </div>
+
+        </div>
+
+        <div className={styles.infor_section}>
+
+          <div className={styles.info_section_title_div}>
+            <h2 className={styles.info_section_title}>About Us</h2>
+          </div>
+
+          <div className={styles.info_section_description_div}>
+
+            <p className={styles.infor_section_description}><strong>Habaneras de Lino</strong> commercializes a Mexican brand that offers its customers an experience of comfort, luxury, and modernity. Initially inspired by the
+              typical Cuban garment: the <strong>guayabera</strong>, it exceeded itself and went beyond this culture, while elegantly mixing <strong>linen</strong> and <strong>cotton</strong>
+              with natural and fresh fibers that reminds of the Caribbean, and with a touch of originality that makes a distinction of the brand, and that allows it to be positioned as
+              a leader in e-commerce in any part of the world.
+            </p>
+          </div>
+
+        </div>
+
+        <div className={styles.infor_section}>
+
+          <div className={styles.info_section_title_div}>
+            <h2 className={styles.info_section_title}>About Shipping</h2>
+          </div>
+
+          <div className={styles.info_section_description_div}>
+
+            <p className={styles.infor_section_description}>
+              Once a purchase is made at <strong>Habaneras de Lino</strong>, it takes from 1 to 7 days for the shipping to arrive. Note that most of our products are <strong>hand-made</strong> in
+              Mexico (all clothes and decorative shapes embedded in our <strong>guayaberas</strong> and <strong>guayamisas</strong> are hand-made). This delivery time only applies to
+               products that are already in stock.</p>
+
+               <p className={styles.infor_section_description}>
+              To ask for a product with a different color/size or decorative shapes reach to us at any time at (sales@habanerasdelino.com) or WhatsApp/Phone (+1 941 447 5126). In this case,
+              it takes from 8 to 15 days for the product to arrive.
+            </p>
+          </div>
+
         </div>
       </main>
 

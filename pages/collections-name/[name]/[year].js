@@ -6,8 +6,9 @@ import Head from 'next/head'
 import * as commonConstants from '../../../logic/common-constants'
 import { ArrowLeftIcon, ArrowRightIcon } from "../../../components/Icons";
 import Link from "next/link";
+import Banner from "../../../components/Banner";
 
-const CollectionGrid = ({ name, year }) => {
+const CollectionNameYearGrid = ({ name, year }) => {
 
     const [collection, setCollection] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -95,9 +96,14 @@ const CollectionGrid = ({ name, year }) => {
             </Head>
 
             <main className={styles.main}>
+
+                <Banner image_source={collection[0].image} fromPublic={false} tagLineBool={true}
+                 tagLine={`${collection[0].title} Collection`}/>
+
                 <div className={styles.collection_div}>
                     <div className={styles.title_div}>
-                        <h1 className={styles.title_h1}>{collection[0].title} Collection</h1>
+                        <h1 className={styles.title_h1}>Luxurious, comfortable, and modern ... </h1>
+                        <h1 className={styles.title_h1_mobile}>{collection[0].title} Collection</h1>
                         <p>{collection[0].year}</p>
                     </div>
 
@@ -149,7 +155,7 @@ const CollectionGrid = ({ name, year }) => {
                             {(currentFirstIndex - commonConstants.PAGINATION_SIZE >= 0) ?
                                 <div className={styles.arrow_div}>
                                     <Button className={styles.arrow_button} variant='outline-light' onClick={(e) => prevArrow(e)}>
-                                        <ArrowLeftIcon className={styles.arrow_icon} height={30} width={30} fill={"lightblue"} />
+                                        <ArrowLeftIcon className={styles.arrow_icon} height={40} width={40} fill={"lightblue"} />
                                     </Button>
                                 </div>
                                 : <div></div>
@@ -158,7 +164,7 @@ const CollectionGrid = ({ name, year }) => {
                             {(currentFirstIndex + commonConstants.PAGINATION_SIZE < collection[0].products.length) ?
                                 <div className={styles.arrow_div}>
                                     <Button className={styles.arrow_button} variant='outline-light' onClick={(e) => nextArrow(e)}>
-                                        <ArrowRightIcon className={styles.arrow_icon} height={30} width={30} fill={"lightblue"} />
+                                        <ArrowRightIcon className={styles.arrow_icon} height={40} width={40} fill={"lightblue"} />
                                     </Button>
                                 </div>
                                 : <div></div>
@@ -172,10 +178,10 @@ const CollectionGrid = ({ name, year }) => {
 
 }
 
-CollectionGrid.getInitialProps = async ({ query }) => {
+CollectionNameYearGrid.getInitialProps = async ({ query }) => {
     const { name, year } = query;
 
     return { name, year };
 };
 
-export default CollectionGrid;
+export default CollectionNameYearGrid;

@@ -11,3 +11,23 @@
     background-color: transparent;
     border-color: transparent;
 }
+
+@media only screen and (max-width: 1472px){
+    .miniNavbar{
+        text-align: center;
+        height: 50px !important;
+    }
+
+    .miniNavbarNav{
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: start !important;
+        display: flex !important;
+        flex-direction: row !important;
+    }
+
+    .miniNavbarButtonDiv{
+        margin-top: 0px !important;
+        margin-left: 10px;
+    }
+}
