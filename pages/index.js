@@ -109,15 +109,15 @@ const Index = () => {
 
           <div className={styles.info_section_description_div}>
             {language === 'en' ?
-              <p className={styles.infor_section_description}>Our sells' policy at <strong>Habaneras de Lino</strong> encourages wholesalers to buy <strong>guayaberas</strong> and
+              <p className={styles.infor_section_description}>Our sells policy at <strong>Habaneras de Lino</strong> encourages wholesalers to buy <strong>guayaberas</strong> and
                 all <strong>linen and cotton clothing</strong> available at our website. We offer specific discounts when buying at least 12 units. The kind and the amount of
                 the discount depend on the number of units to purchase, but our main and most popular ones are for purchases of 12 units,
                 24 units, 50 units, and +50 units. To know more about these discounts, contact us via email at <strong>sales@habanerasdelino.com</strong> or <strong>WhatsApp</strong> (+1 941 447 5126).
               </p> :
-              <p className={styles.infor_section_description}>Nuestra política de ventas en <strong>Habaneras de Lino</strong> anima a los mayoristas a comprar <strong>guayaberas</strong> y
-                y otras prendas de <strong>lino y algodón</strong> disponibles en nuestra web. Ofrecemos descuentos al comprar al menos 12 unidades. El monto del descuento depende
-                de la cantidad de unidades a comprar, pero nuestros principales y más populares son para compras de 12 unidades,
-                24 unidades, 50 unidades y +50 unidades. Para saber más sobre estos descuentos, contáctenos a través de correo electrónico a <strong>sales@habanerasdelino.com</strong> o <strong>WhatsApp</strong> (+1 941 447 5126).
+              <p className={styles.infor_section_description}>Nuestra politica de ventas en <strong>Habaneras de Lino</strong> anima a los mayoristas a comprar <strong>guayaberas</strong> y
+                y otras prendas de <strong>lino y algodon</strong> disponibles en nuestra web. Ofrecemos descuentos al comprar al menos 12 unidades. El monto del descuento depende
+                de la cantidad de unidades a comprar, pero nuestros principales y mas populares son para compras de 12 unidades,
+                24 unidades, 50 unidades y +50 unidades. Para saber mas sobre estos descuentos, contactenos a través de correo electronico a <strong>sales@habanerasdelino.com</strong> o <strong>WhatsApp</strong> (+1 941 447 5126).
               </p>
             }
           </div>
@@ -136,12 +136,12 @@ const Index = () => {
             {language === 'en' ? <p className={styles.infor_section_description}>Because all of our products are carefully <strong>made by hand</strong>, we welcome clients to ask for customizations
               beyond what is it being offered at our website. We can make modifications to the size/color and decorative shapes for any product offere. To know more about
               this policy or to order a customized product contact us at <strong>sales@habanerasdelino.com</strong> or <strong>WhatsApp</strong> (+1 941 447 5126). For this customization, the shipping time
-              may vary depending on its complexity. For more information about shipping, please refer to our section "About Shipping".
+              may vary depending on its complexity. For more information about shipping, please refer to our section About Shipping.
             </p> :
 
               <p className={styles.infor_section_description}>Dado que todos nuestros productos son cuidadosamente <strong>hechos a mano</strong>, invitamos a los clientes a solicitar personalizaciones
-                más allá de lo que se ofrece en nuestro sitio web. Podemos hacer modificaciones en el tamaño/color y formas decorativas para cualquier producto ofrecido. Para saber más sobre
-                esta política o para solicitar un producto personalizado contáctenos a <strong>sales@habanerasdelino.com</strong> o <strong>WhatsApp</strong> (+1 941 447 5126). Para esta personalización, el tiempo de envío
+                mas alla de lo que se ofrece en nuestro sitio web. Podemos hacer modificaciones en el tamaño/color y formas decorativas para cualquier producto ofrecido. Para saber mas sobre
+                esta politica o para solicitar un producto personalizado contactenos a <strong>sales@habanerasdelino.com</strong> o <strong>WhatsApp</strong> (+1 941 447 5126). Para esta personalizacion, el tiempo de envio
                 puede variar dependiendo de su complejidad.
               </p>}
           </div>
@@ -163,10 +163,10 @@ const Index = () => {
             </p> :
               <p className={styles.infor_section_description}><strong>Habaneras de Lino</strong> comercializa una marca mexicana que ofrece a sus clientes una experiencia de confort, lujo y
                 modernidad. Inicialmente inspirado en la
-                prenda típica cubana: la <strong>guayabera</strong>, se superó a sí misma y fue más allá de esta cultura, mezclando elegantemente el <strong>lino</strong> y
-                el <strong>algodón</strong> con
-                fibras naturales y frescas que recuerdan al Caribe, y con un toque de originalidad que hace una distinción de la marca, y que le permite posicionarse como
-                líder en comercio electrónico en cualquier parte del mundo.
+                prenda tipica cubana: la <strong>guayabera</strong>, se supero a si misma y fue mas alla de esta cultura, mezclando elegantemente el <strong>lino</strong> y
+                el <strong>algodon</strong> con
+                fibras naturales y frescas que recuerdan al Caribe, y con un toque de originalidad que hace una distincion de la marca, y que le permite posicionarse como
+                lider en comercio electronico en cualquier parte del mundo.
               </p>
             }
           </div>
@@ -176,7 +176,7 @@ const Index = () => {
         <div className={styles.infor_section} id='about_shipping'>
 
           <div className={styles.info_section_title_div}>
-            <h2 className={styles.info_section_title}>{language === 'en' ? "About Shipping" : "Sobre el Envío"}</h2>
+            <h2 className={styles.info_section_title}>{language === 'en' ? "About Shipping" : "Sobre el Envio"}</h2>
           </div>
           {language === 'en' ?
             <div className={styles.info_section_description_div}>
@@ -194,13 +194,13 @@ const Index = () => {
             <div className={styles.info_section_description_div}>
 
               <p className={styles.infor_section_description}>
-                Una vez realizada la compra en <strong>Habaneras de Lino</strong>, el envío tarda de 1 a 7 días en llegar. Tenga en cuenta que la mayoría de nuestros productos están <strong>hechos a mano</strong> en
-                México (Todas las prendas y formas decorativas incrustadas en nuestras <strong>guayaberas</strong> y <strong>guayamisas</strong> están hechas a mano). Este plazo de entrega sólo se aplica a
-                productos que ya están en stock.</p>
+                Una vez realizada la compra en <strong>Habaneras de Lino</strong>, el envio tarda de 1 a 7 dias en llegar. Tenga en cuenta que la mayoria de nuestros productos estan <strong>hechos a mano</strong> en
+                México (Todas las prendas y formas decorativas incrustadas en nuestras <strong>guayaberas</strong> y <strong>guayamisas</strong> estan hechas a mano). Este plazo de entrega solo se aplica a
+                productos que ya estan en stock.</p>
 
               <p className={styles.infor_section_description}>
-                Para solicitar un producto con un color/tamaño o formas decorativas diferentes comuníquese con nosotros en cualquier momento vía sales@habanerasdelino.com o WhatsApp (+1 941 447 5126). Para estas ordenes,
-              , el producto demora de 8 a 15 días en llegar.
+                Para solicitar un producto con un color/tamaño o formas decorativas diferentes comuniquese con nosotros en cualquier momento via sales@habanerasdelino.com o WhatsApp (+1 941 447 5126). Para estas ordenes,
+              , el producto demora de 8 a 15 dias en llegar.
               </p>
             </div>
           }
