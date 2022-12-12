@@ -21,9 +21,7 @@ const ProductVariationDetail = ({ id }) => {
         async function awaitProductVariation() {
             await ProductVarF.fetchProductVariation(setProductVariation, id);
         }
-        return () => {
             awaitProductVariation()
-        }
     }, [id])
 
     useEffect(() => {

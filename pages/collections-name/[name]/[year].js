@@ -25,9 +25,7 @@ const CollectionNameYearGrid = ({ name, year }) => {
         async function awaitCollection() {
             await CollectionF.fetchCollectionsByNameYear(setCollection, body);
         }
-        return () => {
             awaitCollection()
-        }
     }, [name, year])
 
     useEffect(() => {

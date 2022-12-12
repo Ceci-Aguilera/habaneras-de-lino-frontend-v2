@@ -55,13 +55,13 @@ const ProductCarousel = ({ collection, collectionTitle = false }) => {
         setCurrentFirstIndex((currentFirstIndex - amountOfProducts + products.length) % products.length)
     }
 
-    // useEffect(() => {
-    //     const timer = setTimeout(() => {
-    //         console.log('Next Arrow')
-    //       nextArrow();
-    //     }, amountOfTime);
-    //     return () => clearTimeout(timer);
-    //   });
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            console.log('Next Arrow')
+          nextArrow();
+        }, amountOfTime);
+        return () => clearTimeout(timer);
+      });
 
     return (currentProducts.length == 0 || currentProducts == undefined || currentProducts == null) ?
         <div></div> : (

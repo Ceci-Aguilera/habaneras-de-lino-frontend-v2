@@ -18,15 +18,11 @@ const ProductDetail = ({ id }) => {
     const { cart, addProduct } = useCart()
     const { translate } = useLanguage();
 
-    // console.log('Cart ',cart)
-
     useEffect(() => {
         async function awaitProduct() {
             await ProductF.fetchProduct(setProduct, id);
         }
-        return () => {
             awaitProduct()
-        }
     }, [id])
 
     useEffect(() => {

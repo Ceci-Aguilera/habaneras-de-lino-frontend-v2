@@ -20,9 +20,7 @@ const CategoryGrid = ({ id }) => {
         async function awaitCategory() {
             await CategoryF.fetchCategory(setCategory, id);
         }
-        return () => {
-            awaitCategory()
-        }
+        awaitCategory()
     }, [id])
 
     useEffect(() => {

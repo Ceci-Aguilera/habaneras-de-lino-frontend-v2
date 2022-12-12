@@ -24,9 +24,7 @@ const CategoryGridName = ({ name }) => {
         async function awaitCategory() {
             await CategoryF.fetchCategoriesByName(setCategory, body);
         }
-        return () => {
-            awaitCategory()
-        }
+        awaitCategory()
     }, [name])
 
     useEffect(() => {

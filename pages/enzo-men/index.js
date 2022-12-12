@@ -30,10 +30,8 @@ const Index = () => {
         async function awaitCategories() {
             await categoryF.fetchCategories(setCategories);
         }
-        return () => {
             awaitCollections()
             awaitCategories()
-        }
     }, [])
 
     useEffect(() => {

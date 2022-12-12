@@ -33,10 +33,8 @@ const Index = () => {
     async function awaitCategories() {
       await categoryF.fetchCategories(setCategories);
     }
-    return () => {
       awaitCollections()
       awaitCategories()
-    }
   }, [])
 
   useEffect(() => {
@@ -47,6 +45,7 @@ const Index = () => {
 
 
   return (loading) ? <div></div> : (
+    // return(
     <div className={styles.container}>
 
       <Head>

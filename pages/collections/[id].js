@@ -20,9 +20,7 @@ const CollectionGrid = ({ id }) => {
         async function awaitCollection() {
             await CollectionF.fetchCollection(setCollection, id);
         }
-        return () => {
             awaitCollection()
-        }
     }, [id])
 
     useEffect(() => {
