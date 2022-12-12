@@ -33,8 +33,8 @@ const Index = () => {
     async function awaitCategories() {
       await categoryF.fetchCategories(setCategories);
     }
-      awaitCollections()
-      awaitCategories()
+    awaitCollections()
+    awaitCategories()
   }, [])
 
   useEffect(() => {
@@ -63,7 +63,7 @@ const Index = () => {
           {collections.map((collection, collectionIndex) => {
             return (
               <div key={collectionIndex}>
-                {(collection.products.length) > 0 ?
+                {(collection.products.length) > 3 ?
                   <div className={styles.collection_div}>
                     <ProductCarousel collection={collection} collectionTitle={true} />
                     <div className={styles.collection_button_div}>
@@ -90,7 +90,7 @@ const Index = () => {
                     <div className={styles.category_button_div}>
                       <Link href={`/categories/${category.id}`}>
                         <Button variant='light' className={styles.category_button}>
-                          MORE
+                          {translate('word', 'more', 'full')}
                         </Button>
                       </Link>
                     </div>
@@ -199,7 +199,7 @@ const Index = () => {
 
               <p className={styles.infor_section_description}>
                 Para solicitar un producto con un color/tamaño o formas decorativas diferentes comuniquese con nosotros en cualquier momento via sales@habanerasdelino.com o WhatsApp (+1 941 447 5126). Para estas ordenes,
-              , el producto demora de 8 a 15 dias en llegar.
+                , el producto demora de 8 a 15 dias en llegar.
               </p>
             </div>
           }

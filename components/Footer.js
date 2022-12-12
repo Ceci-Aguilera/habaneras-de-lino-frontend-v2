@@ -87,6 +87,12 @@ export default function Footer() {
                                     Valladolid
                                 </a>
                             </Link>
+
+                            <Link href="/collections-name/Cancun/2022">
+                                <a className={styles.footerLinkP}>
+                                    Cancun
+                                </a>
+                            </Link>
                         </div>
                     </Col>
 

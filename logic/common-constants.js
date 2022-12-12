@@ -1,5 +1,5 @@
 export const principalCollections = {
-    names: ['Luxury'],
+    names: ['Luxury', 'Etnik', 'Cittadino', 'Valladolid', 'Cancun'],
     year: '2022'
 }
 

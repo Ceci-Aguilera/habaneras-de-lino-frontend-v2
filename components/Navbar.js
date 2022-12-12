@@ -61,6 +61,10 @@ export default function NextNavbar() {
                                 <NavDropdown.Item href="/collections-name/Valladolid/2022">
                                     Valladolid
                                 </NavDropdown.Item>
+
+                                <NavDropdown.Item href="/collections-name/Cancun/2022">
+                                    Cancun
+                                </NavDropdown.Item>
                             </NavDropdown>
 
 
