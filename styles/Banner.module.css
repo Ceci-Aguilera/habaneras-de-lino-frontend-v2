@@ -1,4 +1,5 @@
-.banner_div {
+.banner_div,
+.banner_div_p {
     height: 400px;
     width: 80%;
     margin-left: auto !important;
@@ -6,7 +7,12 @@
     position: relative;
 }
 
-.banner_img_div {
+.banner_div_p {
+    height: 600px;
+}
+
+.banner_img_div,
+.banner_img_div_p {
     height: 400px;
     width: 100%;
     margin-left: auto !important;
@@ -16,7 +22,12 @@
     left: 0;
 }
 
-.banner_img_div_wrapper {
+.banner_img_div_p {
+    height: 600px
+}
+
+.banner_img_div_wrapper,
+.banner_img_div_wrapper_p {
     height: 400px;
     width: 100%;
     margin-left: auto !important;
@@ -25,6 +36,10 @@
     top: 0;
     left: 0%;
     overflow: hidden !important;
+}
+
+.banner_img_div_wrapper_p {
+    height: 600px;
 }
 
 .banner_img {
@@ -37,7 +52,8 @@
     left: 0;
 }
 
-.banner_img_cover_div {
+.banner_img_cover_div,
+.banner_img_cover_div_p {
     height: 400px;
     width: 100%;
     background-color: #31313134;
@@ -47,7 +63,30 @@
     z-index: 10;
 }
 
+.banner_img_cover_div_p {
+    height: 600px;
+}
+
 .banner_tagline_div {
+    height: 70px;
+    width: max-content;
+    color: white;
+    background-color: #3131315d;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 5rem;
+    text-align: center;
+    position: absolute;
+    top: 50% !important;
+    left: 50% !important;
+    line-height: 80px;
+    z-index: 20;
+    transform: translate(-50%, -50%);
+    font-family: 'Corinthia' !important;
+}
+
+.banner_tagline_div,
+.banner_tagline_div_p {
     height: 70px;
     width: max-content;
     color: white;
@@ -71,20 +110,26 @@
     }
     
     .banner_div,
+    .banner_div_p,
     .banner_img_div,
+    .banner_img_div_p,
     .banner_img_div_wrapper,
-    .banner_img_cover_div {
+    .banner_img_div_wrapper_p,
+    .banner_img_cover_div,
+    .banner_img_cover_div_p {
         height: 300px;
     }
 
-    .banner_tagline_div {
+    .banner_tagline_div,
+    .banner_tagline_div_p {
         font-size: 1.5rem;
     }
 
 }
 
 @media only screen and (max-width: 768px) {
-    .banner_div {
+    .banner_div,
+    .banner_div_p {
         display: none !important;
     }
 }
