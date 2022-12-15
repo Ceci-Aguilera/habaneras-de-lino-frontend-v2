@@ -30,6 +30,7 @@
 
 .grid_col{
     width: 25% !important;
+    margin-top: 20px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     border: 0px !important;
@@ -37,11 +38,12 @@
 }
 
 .prod_card_div{
-    width: 270px !important;
+    width: 300px !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    margin-bottom: 100px !important;
+    margin-bottom: 150px !important;
     text-align: center !important;
+    background-color: white !important;
 }
 
 .prod_card{
@@ -51,10 +53,11 @@
     margin-right: auto !important;
     border: 0px !important;
     text-align: center !important;
+    background-color: white !important;
 }
 
 .prod_card_img{
-    width: 260px !important;
+    width: 290px !important;
     height: 328px !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -64,16 +67,19 @@
     top: 0;
     left: 0;
     position: absolute;
+    background-color: white !important;
 }
 
 .s_card_img{
-    width: 250px !important;
+    width: 290px !important;
     height: 326px !important;
     margin-top: 1px !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    border: 1px solid #27262644;
     border-radius: 0px !important;
     text-align: center !important;
+    background-color: white !important;
 }
 
 .card_img_div{
@@ -98,13 +104,24 @@
 }
 
 .prod_card_footer_div{
+    width: 80% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     display: flex !important;
     flex-direction: row !important;
-    justify-content: space-between !important;
+    justify-content: space-between;
 }
 
-.prod_card_footer_name{
-    text-align: start !important;
+.prod_card_footer_colors_div{
+    display: flex !important;
+    flex-direction: row !important;
+    column-gap: 5px !important;
+}
+
+.prod_card_footer_colors_div_item{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
 }
 
 .arrow_wrapper_div{
@@ -120,6 +137,24 @@
 
 .title_h1_mobile{
     display: none;
+}
+
+.prod_card_footer_title{
+    font-size: 0.8rem !important;
+    padding-bottom: 0px !important;
+}
+
+.prod_card_footer_pricing_div,
+.prod_card_footer_pricing{
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+}
+
+.prod_card_footer_button_div{
+    margin-top: -10px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
 }
 
 @media only screen and (max-width: 1472px){

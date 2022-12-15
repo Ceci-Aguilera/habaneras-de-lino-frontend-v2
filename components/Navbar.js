@@ -85,19 +85,19 @@ export default function NextNavbar() {
                             </NavDropdown.Item>
                         </NavDropdown>
 
-                        <Nav.Link className={styles.navLink} href="#discounts">
+                        <Nav.Link className={styles.navLink} href="/#discounts">
                             {language=='en'?"Wholesalers Discount": "Mayoristas"}
                         </Nav.Link>
 
-                        <Nav.Link className={styles.navLink} href="#customization">
+                        <Nav.Link className={styles.navLink} href="/#customization">
                             {language=='en'?"Customozations": "Personalizar"}
                         </Nav.Link>
 
-                        <Nav.Link className={styles.navLink} href="#about_us">
+                        <Nav.Link className={styles.navLink} href="/#about_us">
                             {language=='en'?"About Us": "Nosotros"}
                         </Nav.Link>
 
-                        <Nav.Link className={styles.navLink} href="#about_shipping">
+                        <Nav.Link className={styles.navLink} href="/#about_shipping">
                             {language=='en'?"Shipping": "Envíos"}
                         </Nav.Link>
                     </Nav>

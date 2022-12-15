@@ -67,7 +67,17 @@
 }
 
 .card_info{
-    padding-top: 10px;;
+    color: #444444dd !important;
+    padding-top: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 0px !important;
+    font-size: 0.85rem !important;
+}
+
+.card_product_pricing{
+    padding-top: 0px !important;
+    margin-top: -15px !important;
 }
 
 @media only screen and (max-width: 1472px) {
@@ -98,6 +108,12 @@
         column-gap: 0px !important;
     }
 
+    .carousel_title{
+        font-family: "Corinthia" !important;
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
     .cards_div{
         height: max-content !important;
         width: 100% !important;
@@ -110,8 +126,9 @@
         justify-content: center;
     }
 
-    .arrow_div{
-        display: none !important;
+    .arrow_icon{
+        height: 30px !important;
+        width: 30px !important;
     }
     
 }

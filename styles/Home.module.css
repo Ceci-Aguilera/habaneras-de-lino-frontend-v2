@@ -1,43 +1,39 @@
-.enzomen_title_div{
+.enzomen_title_div {
     margin-top: 50px;
     text-align: center;
 }
 
-.enzomen_title{
+.enzomen_title {
     font-size: 5rem !important;
     font-weight: bold;
 }
 
 .collections_div,
-.categories_div{
+.categories_div {
     width: 100%;
-    margin-top: 100px;
+    margin-top: 100px !important;
     text-align: center;
 }
 
-.categories_div{
-    margin-top: 100px !important;
-}
-
 .collection_div,
-.category_div{
+.category_div {
     width: 100%;
     margin-top: 10px;
-    margin-bottom: 65px;
+    margin-bottom: 100px;
     text-align: center;
 }
 
 .collection_button_div,
-.category_button_div{
-    margin-top: 50px;
+.category_button_div {
+    margin-top: 80px;
     margin-left: auto !important;
     margin-right: auto !important;
     text-align: center !important;
 }
 
 .collection_button,
-.category_button{
-    font-size: 1.3rem;
+.category_button {
+    font-size: 1.2rem;
     border: 1px solid black !important;
     border-radius: 5 !important;
 }
@@ -49,13 +45,13 @@
 .category_button:hover,
 .category_button:active,
 .category_button:after,
-.category_button:focus{
+.category_button:focus {
     background-color: rgb(206, 228, 235) !important;
     border: 1px solid black !important;
     border-radius: 5px !important;
 }
 
-.collections_grid_container{
+.collections_grid_container {
     max-width: 1500px;
     margin-top: 50px;
     margin-left: auto;
@@ -63,7 +59,7 @@
     text-align: center !important;
 }
 
-.collections_grid_container_wrapper{
+.collections_grid_container_wrapper {
     height: 500px;
     width: 300px;
     margin-top: 20px;
@@ -73,7 +69,7 @@
 }
 
 .collections_grid_container_card,
-.collections_grid_container_card_body{
+.collections_grid_container_card_body {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -84,53 +80,79 @@
     cursor: pointer;
 }
 
-.collections_grid_container_card_img{
+.collections_grid_container_card_img {
     height: 400px;
     width: 300px;
     margin: 0px !important;
     padding: 0px !important;
 }
 
-.collections_grid_container_card_footer{
+.collections_grid_container_card_footer {
     background-color: transparent;
     border: 0px !important;
 }
 
-.collection_grid_button{
+.collection_grid_button {
     background-color: transparent;
     font-size: 2rem;
     border-color: transparent;
 }
 
-.collection_grid_button:hover{
+.collection_grid_button:hover {
     background-color: rgb(204, 221, 236);
     border-color: transparent;
 }
 
-.collections_grid_title_div{
+.collections_grid_title_div {
     text-align: center !important;
 }
 
-.collections_grid_title{
-    font-family: 'Corinthia'!important;
+.collections_grid_title {
+    font-family: 'Corinthia' !important;
     font-size: 4rem;
 }
 
-.infor_section{
+.infor_section {
     width: 80% !important;
     max-width: 800px;
     margin-top: 50px !important;
-    margin-left: auto!important;
-    margin-right: auto!important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     text-align: justify !important;
 }
 
-.info_section_title_div{
-    text-align: center!important;
+.info_section_title_div {
+    text-align: center !important;
     margin-bottom: 20px;
 }
 
-.info_section_title{
-    font-family: 'Corinthia'!important;
+.info_section_title {
+    font-family: 'Corinthia' !important;
     font-size: 3rem;
+}
+
+@media only screen and (max-width:758px) {
+
+    .collections_div,
+    .categories_div {
+        width: 100%;
+        margin-top: 30px !important;
+        text-align: center;
+    }
+
+    .collection_div,
+    .category_div {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .collection_button_div,
+    .category_button_div {
+        margin-top: 70px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+    }
 }

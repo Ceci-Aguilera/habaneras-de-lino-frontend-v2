@@ -55,14 +55,6 @@ const ProductCarousel = ({ collection, collectionTitle = false }) => {
         setCurrentFirstIndex((currentFirstIndex - amountOfProducts + products.length) % products.length)
     }
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            console.log('Next Arrow')
-          nextArrow();
-        }, amountOfTime);
-        return () => clearTimeout(timer);
-      });
-
     return (currentProducts.length == 0 || currentProducts == undefined || currentProducts == null) ?
         <div></div> : (
             <div className={styles.carousel_div}>
@@ -102,6 +94,7 @@ const ProductCarousel = ({ collection, collectionTitle = false }) => {
                                             </Link>
                                             <div className={`${styles.product_card_footer}`}>
                                                 <p className={styles.card_info}>{commonConstants.TruncateLongString(current_product.name).toUpperCase()}</p>
+                                                <p className={styles.card_product_pricing}>${parseFloat(current_product.base_pricing).toFixed(2)}</p>
                                             </div>
                                         </>
                                         : <div></div>}

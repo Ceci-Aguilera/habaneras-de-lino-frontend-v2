@@ -127,14 +127,23 @@ const CategoryGridName = ({ name }) => {
 
                                                     <Card.Footer className={styles.prod_card_footer}>
                                                         <div className={styles.prod_card_footer_div}>
-                                                            <div className={styles.prod_card_footer_info_div}>
-                                                                <p className={styles.prod_card_footer_info}>
-                                                                    {commonConstants.TruncateLongString(product.name)}
-                                                                </p>
+                                                            <div className={styles.prod_card_footer_colors_div}>
+                                                                {product.available_colors.map((col, colIdx) => {
+                                                                    return (colIdx < 5)?(<div key={colIdx} 
+                                                                        className={styles.prod_card_footer_colors_div_item}
+                                                                        style={{backgroundColor: col.code, height:'15px', width:'15px', border: '1px solid #444'}}></div>)
+                                                                        : <div></div>
+                                                                })}
                                                             </div>
-                                                            <div className={styles.prod_card_footer_info_div}>
-                                                                <p className={styles.prod_card_footer_info}>${parseFloat(product.base_pricing).toFixed(2)}</p>
+                                                            <div className={styles.prod_card_footer_pricing_div}>
+                                                                <p className={styles.prod_card_footer_pricing}>${parseFloat(product.base_pricing).toFixed(2)}</p>
                                                             </div>
+                                                        </div>
+
+                                                        <div className={styles.prod_card_footer_button_div}>
+                                                            <Button variant='light' className={styles.prod_card_footer_button}>
+                                                                Add to Cart
+                                                            </Button>
                                                         </div>
                                                     </Card.Footer>
                                                 </Card>

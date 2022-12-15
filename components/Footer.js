@@ -102,25 +102,25 @@ export default function Footer() {
                         </h4>
 
                         <div className={styles.footerLinkDiv}>
-                            <Link href="#discounts">
+                            <Link href="/#discounts">
                                 <a className={styles.footerLinkP}>
                                     {language == 'en' ? "Wholesalers Discount" : "Mayoristas"}
                                 </a>
                             </Link>
 
-                            <Link href="#customization">
+                            <Link href="/#customization">
                                 <a className={styles.footerLinkP}>
                                     {language == 'en' ? "Customozations" : "Personalizar"}
                                 </a>
                             </Link>
 
-                            <Link href="#about_us">
+                            <Link href="/#about_us">
                                 <a className={styles.footerLinkP}>
                                     {language == 'en' ? "About Us" : "Nosotros"}
                                 </a>
                             </Link>
 
-                            <Link href="#about_shipping">
+                            <Link href="/#about_shipping">
                                 <a className={styles.footerLinkP}>
                                     {language == 'en' ? "Shipping" : "Envíos"}
                                 </a>
